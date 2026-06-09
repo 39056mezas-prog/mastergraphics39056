@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Master Graphics 646 | Creative Agency · Ensenada, Baja California</title>
 <meta name="description" content="Full-service creative agency in Ensenada, Baja California. Logo design, branding, video production, Instagram reels, website design, Facebook Ads, Google Ads, and print coordination for US clients.">
 <meta name="keywords" content="master graphics ensenada, graphic design baja california, creative agency mexico, design studio ensenada 646, video production baja california, website design ensenada, branding agency mexico usa, facebook ads ensenada, google ads baja california">
@@ -30,6 +30,7 @@
   --border2:rgba(255,255,255,0.10);
   --poppins:'Poppins',sans-serif;
   --inter:'Inter',sans-serif;
+  --nav-h:64px;
 }
 
 html{scroll-behavior:smooth}
@@ -53,18 +54,19 @@ body{
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:1.4rem 5rem;
-  background:rgba(7,7,7,0.85);
+  padding:1.1rem 2.5rem;
+  background:rgba(7,7,7,0.92);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
   transition:padding .3s,background .3s;
+  gap:1rem;
 }
 
 .logo{
   font-family:var(--poppins);font-weight:800;font-size:1.05rem;
   letter-spacing:-.01em;color:var(--text);text-decoration:none;
-  display:flex;align-items:center;gap:.6rem;
+  display:flex;align-items:center;gap:.6rem;flex-shrink:0;
 }
 
 .logo-mark{
@@ -79,7 +81,7 @@ nav{
   display:block;letter-spacing:.05em;text-transform:uppercase;margin-top:-2px;
 }
 
-.nav-links{display:flex;align-items:center;gap:2.75rem;list-style:none}
+.nav-links{display:flex;align-items:center;gap:2.25rem;list-style:none}
 
 .nav-links a{
   color:var(--text2);text-decoration:none;font-size:.82rem;
@@ -92,15 +94,38 @@ nav{
 
 .nav-cta{
   background:var(--accent)!important;color:#fff!important;
-  padding:.55rem 1.4rem!important;border-radius:6px!important;
+  padding:.5rem 1.2rem!important;border-radius:6px!important;
   font-weight:600!important;
 }
 
 .nav-cta:hover{opacity:.9!important;transform:translateY(-1px)}
 
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle{
+  display:flex;align-items:center;
+  background:var(--s2);
+  border:1px solid var(--border2);
+  border-radius:6px;overflow:hidden;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  padding:.38rem .6rem;
+  font-family:var(--poppins);font-size:.68rem;font-weight:700;
+  letter-spacing:.05em;color:var(--muted);
+  background:transparent;border:none;cursor:pointer;
+  transition:all .18s;line-height:1;
+}
+
+.lang-btn.active{background:var(--accent);color:#fff}
+.lang-btn:not(.active):hover{color:var(--text)}
+
+.nav-right{display:flex;align-items:center;gap:.85rem}
+
+/* ── HAMBURGER ── */
 .hamburger{
   display:none;flex-direction:column;gap:5px;cursor:pointer;
-  background:none;border:none;padding:4px;
+  background:none;border:none;padding:4px;flex-shrink:0;
 }
 
 .hamburger span{
@@ -108,26 +133,45 @@ nav{
   background:var(--text);transition:all .3s;
 }
 
+/* ── MOBILE MENU ── */
 .mobile-menu{
   display:none;position:fixed;inset:0;z-index:99;
   background:rgba(7,7,7,.98);flex-direction:column;
-  align-items:center;justify-content:center;gap:2.25rem;
+  align-items:center;justify-content:center;gap:2rem;
 }
 
 .mobile-menu.open{display:flex}
 
 .mobile-menu a{
-  font-family:var(--poppins);font-size:1.6rem;font-weight:700;
+  font-family:var(--poppins);font-size:1.5rem;font-weight:700;
   color:var(--text);text-decoration:none;
   transition:color .2s;
 }
 
 .mobile-menu a:hover{color:var(--accent)}
 
+.mobile-lang{
+  display:flex;align-items:center;gap:.5rem;
+  margin-top:.5rem;
+}
+
+.mobile-lang-btn{
+  padding:.5rem 1.1rem;
+  font-family:var(--poppins);font-size:.78rem;font-weight:700;
+  letter-spacing:.08em;color:var(--muted);
+  background:var(--s2);border:1px solid var(--border2);
+  border-radius:6px;cursor:pointer;transition:all .18s;
+}
+
+.mobile-lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
 /* ── HERO ── */
 #hero{
-  min-height:100vh;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:0 5rem 7rem;
+  min-height:100svh;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:calc(var(--nav-h) + 4rem) 5rem 7rem;
   position:relative;overflow:hidden;
 }
 
@@ -194,7 +238,7 @@ nav{
 
 h1.hero-h{
   font-family:var(--poppins);font-weight:800;
-  font-size:clamp(3rem,7.5vw,7rem);
+  font-size:clamp(2.6rem,7.5vw,7rem);
   line-height:.96;letter-spacing:-.04em;max-width:820px;
   opacity:0;animation:fadeUp .8s ease forwards .5s;
 }
@@ -218,6 +262,7 @@ h1.hero-h em{
 .hero-acts{
   display:flex;gap:1rem;margin-top:3rem;align-items:center;
   opacity:0;animation:fadeUp .8s ease forwards .9s;
+  flex-wrap:wrap;
 }
 
 .btn{
@@ -237,6 +282,7 @@ h1.hero-h em{
   display:flex;gap:3rem;margin-top:4rem;padding-top:2.5rem;
   border-top:1px solid var(--border);
   opacity:0;animation:fadeUp .8s ease forwards 1.1s;
+  flex-wrap:wrap;
 }
 
 .hstat{}
@@ -288,7 +334,7 @@ h1.hero-h em{
 
 h2.section-h{
   font-family:var(--poppins);font-weight:800;
-  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-size:clamp(1.8rem,3.5vw,3.2rem);
   letter-spacing:-.035em;line-height:1.08;
 }
 
@@ -790,7 +836,7 @@ h2.section-h{
 
 .ci-tag::before{content:'';display:block;width:16px;height:1.5px;background:var(--accent)}
 
-.ci h3{
+.contact-grid > div > h3{
   font-family:var(--poppins);font-weight:800;font-size:2rem;
   letter-spacing:-.035em;line-height:1.1;margin-bottom:1rem;
 }
@@ -812,8 +858,6 @@ h2.section-h{
   width:36px;height:36px;background:rgba(255,61,0,.1);border-radius:8px;
   display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;
 }
-
-.crow-info{}
 
 .crow-lbl{
   font-family:var(--poppins);font-size:.6rem;font-weight:700;
@@ -883,7 +927,7 @@ h2.section-h{
   font-family:var(--poppins);font-weight:700;
   font-size:.85rem;letter-spacing:.05em;
   border-radius:8px;cursor:pointer;transition:all .22s;
-  align-self:flex-start;
+  align-self:flex-start;width:100%;
 }
 
 .sub-btn:hover{background:#e03500;transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,61,0,.35)}
@@ -897,20 +941,20 @@ h2.section-h{
 .footer-inner{
   max-width:1320px;margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;
+  gap:1rem;flex-wrap:wrap;
 }
 
-footer p{
+.footer-inner p{
   font-family:var(--inter);font-size:.78rem;
   color:var(--muted);font-weight:400;
 }
 
-footer a{color:var(--muted);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--accent)}
+.footer-inner a{color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-inner a:hover{color:var(--accent)}
 
 /* ── FLOAT WA ── */
 .wa-float{
-  position:fixed;bottom:2rem;right:2rem;z-index:50;
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:50;
   background:#25D366;width:56px;height:56px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   text-decoration:none;font-size:1.4rem;
@@ -941,13 +985,18 @@ footer a:hover{color:var(--accent)}
   100%{transform:scale(1.9);opacity:0}
 }
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE — TABLET ── */
 @media(max-width:960px){
-  nav{padding:1.1rem 1.75rem}
+  :root{--nav-h:60px}
+  nav{padding:.9rem 1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
 
-  #hero{padding:0 1.75rem 5rem}
+  #hero{
+    padding:calc(var(--nav-h) + 3rem) 1.75rem 5rem;
+    justify-content:flex-start;
+  }
+
   .hero-stats{gap:2rem}
 
   .section,.svc-wrap,.adv-inner,.work-wrap,.process-inner,.pricing-inner,.contact-inner{
@@ -980,6 +1029,105 @@ footer a:hover{color:var(--accent)}
   .sec-hd-row{flex-direction:column;align-items:flex-start}
 }
 
+/* ── RESPONSIVE — MOBILE ── */
+@media(max-width:600px){
+  :root{--nav-h:58px}
+
+  nav{padding:.85rem 1.1rem}
+
+  .logo-text{display:none}
+
+  #hero{
+    padding:calc(var(--nav-h) + 2.5rem) 1.25rem 4rem;
+    justify-content:flex-start;
+    min-height:100svh;
+    min-height:100vh;
+  }
+
+  .hero-badge{
+    font-size:.62rem;
+    letter-spacing:.12em;
+    margin-bottom:1.25rem;
+  }
+
+  h1.hero-h{
+    font-size:clamp(2rem,10.5vw,3.4rem);
+    letter-spacing:-.03em;
+    line-height:.98;
+  }
+
+  .hero-sub{
+    margin-top:1.25rem;
+    font-size:.9rem;
+    line-height:1.75;
+  }
+
+  .hero-acts{
+    margin-top:1.75rem;
+    flex-direction:column;
+    align-items:stretch;
+    gap:.75rem;
+  }
+
+  .hero-acts .btn{
+    justify-content:center;
+    text-align:center;
+    padding:.9rem 1.5rem;
+  }
+
+  .hero-stats{
+    margin-top:2rem;
+    padding-top:1.5rem;
+    gap:1.25rem 2rem;
+    flex-wrap:wrap;
+  }
+
+  .hstat{flex:0 0 calc(50% - 1rem)}
+
+  .hstat-val{font-size:1.65rem}
+
+  .svc-wrap,.adv-inner,.work-wrap,.process-inner,.pricing-inner,.contact-inner,.section{
+    padding:4rem 1.25rem;
+  }
+
+  .footer-wrap{padding:2rem 1.25rem}
+
+  h2.section-h{font-size:clamp(1.65rem,6.5vw,2.4rem)}
+
+  .sec-hd{margin-bottom:2.5rem}
+
+  .process-steps{grid-template-columns:1fr;gap:1rem}
+  .process-steps::before{display:none}
+
+  .case-results{grid-template-columns:1fr 1fr 1fr}
+  .cr-val{font-size:1.1rem}
+
+  .pkg{padding:2rem 1.5rem}
+  .pkg-price{font-size:2.8rem}
+
+  .case-info{padding:1.75rem 1.25rem}
+  .case-title{font-size:1.35rem}
+
+  .contact-inner{padding:3.5rem 1.25rem}
+
+  .contact-grid>div>h3{font-size:1.5rem}
+
+  .svc{padding:1.75rem 1.25rem}
+
+  .adv-inner{padding:4rem 1.25rem;gap:2.5rem}
+
+  .ads-channels{grid-template-columns:1fr}
+
+  .svc-ads{padding:1.75rem 1.25rem}
+
+  .pricing-footer{padding:1.25rem}
+
+  .big-stat{padding:1.25rem}
+  .big-stat-val{font-size:2rem}
+
+  .wa-float{width:50px;height:50px;font-size:1.2rem}
+}
+
 @media(min-width:961px) and (max-width:1200px){
   .svc-grid{grid-template-columns:repeat(3,1fr)}
   .process-steps{grid-template-columns:repeat(2,1fr)}
@@ -998,11 +1146,15 @@ footer a:hover{color:var(--accent)}
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#work" onclick="closeMobile()">Work</a>
-  <a href="#process" onclick="closeMobile()">Process</a>
-  <a href="#pricing" onclick="closeMobile()">Pricing</a>
-  <a href="#contact" class="btn btn-p" style="margin-top:.5rem" onclick="closeMobile()">Get a Quote →</a>
+  <a href="#services" data-t="nav.services" onclick="closeMobile()">Services</a>
+  <a href="#work" data-t="nav.work" onclick="closeMobile()">Work</a>
+  <a href="#process" data-t="nav.process" onclick="closeMobile()">Process</a>
+  <a href="#pricing" data-t="nav.pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#contact" class="btn btn-p" style="margin-top:.5rem" data-t="nav.cta" onclick="closeMobile()">Get a Quote →</a>
+  <div class="mobile-lang">
+    <button class="mobile-lang-btn active" id="mobileLangEN" onclick="setLang('en')">EN</button>
+    <button class="mobile-lang-btn" id="mobileLangES" onclick="setLang('es')">ES</button>
+  </div>
 </div>
 
 <!-- NAV -->
@@ -1015,15 +1167,21 @@ footer a:hover{color:var(--accent)}
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="#services" data-t="nav.services">Services</a></li>
+    <li><a href="#work" data-t="nav.work">Work</a></li>
+    <li><a href="#process" data-t="nav.process">Process</a></li>
+    <li><a href="#pricing" data-t="nav.pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta" data-t="nav.cta">Get a Quote</a></li>
   </ul>
-  <button class="hamburger" id="burger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langEN" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="langES" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1038,62 +1196,62 @@ footer a:hover{color:var(--accent)}
   </div>
   <div class="hero-noise" aria-hidden="true"></div>
 
-  <div class="hero-badge">Creative Agency · Ensenada, Baja California</div>
+  <div class="hero-badge" data-t="hero.badge">Creative Agency · Ensenada, Baja California</div>
 
-  <h1 class="hero-h">If They Can't Find You,<br><em>They Can't Hire You.</em></h1>
+  <h1 class="hero-h" data-th="hero.h1">If They Can't Find You,<br><em>They Can't Hire You.</em></h1>
 
-  <p class="hero-sub">
+  <p class="hero-sub" data-t="hero.sub">
     We build websites, brand identities, video content, and run ads for small businesses that are tired of being invisible. Already have a vision? We make it real. Starting from zero? We handle everything — no files, no back-and-forth, just results.
   </p>
 
   <div class="hero-acts">
-    <a href="#contact" class="btn btn-p">Get a Free Quote →</a>
-    <a href="#work" class="btn btn-g">See Our Work</a>
+    <a href="#contact" class="btn btn-p" data-t="hero.cta1">Get a Free Quote →</a>
+    <a href="#work" class="btn btn-g" data-t="hero.cta2">See Our Work</a>
   </div>
 
   <div class="hero-stats">
     <div class="hstat">
       <div class="hstat-val">$250</div>
-      <div class="hstat-lbl">Full website, all-in</div>
+      <div class="hstat-lbl" data-t="stat1.lbl">Full website, all-in</div>
     </div>
     <div class="hstat">
       <div class="hstat-val">0</div>
-      <div class="hstat-lbl">Files you need to send</div>
+      <div class="hstat-lbl" data-t="stat2.lbl">Files you need to send</div>
     </div>
     <div class="hstat">
       <div class="hstat-val">50<sup>%</sup></div>
-      <div class="hstat-lbl">Less than US agency rates</div>
+      <div class="hstat-lbl" data-t="stat3.lbl">Less than US agency rates</div>
     </div>
     <div class="hstat">
       <div class="hstat-val">1<sup>src</sup></div>
-      <div class="hstat-lbl">Studio for everything</div>
+      <div class="hstat-lbl" data-t="stat4.lbl">Studio for everything</div>
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ti">Graphic Design</span>
-    <span class="ti">Video Production</span>
-    <span class="ti">Brand Identity</span>
-    <span class="ti">Print Coordination</span>
-    <span class="ti">Website Design</span>
-    <span class="ti">Facebook Ads</span>
-    <span class="ti">Google Ads</span>
-    <span class="ti">Social Media Content</span>
-    <span class="ti">Instagram Reels</span>
-    <span class="ti">Event Promotion</span>
-    <span class="ti">Graphic Design</span>
-    <span class="ti">Video Production</span>
-    <span class="ti">Brand Identity</span>
-    <span class="ti">Print Coordination</span>
-    <span class="ti">Website Design</span>
-    <span class="ti">Facebook Ads</span>
-    <span class="ti">Google Ads</span>
-    <span class="ti">Social Media Content</span>
-    <span class="ti">Instagram Reels</span>
-    <span class="ti">Event Promotion</span>
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ti" data-ticker="t1">Graphic Design</span>
+    <span class="ti" data-ticker="t2">Video Production</span>
+    <span class="ti" data-ticker="t3">Brand Identity</span>
+    <span class="ti" data-ticker="t4">Print Coordination</span>
+    <span class="ti" data-ticker="t5">Website Design</span>
+    <span class="ti" data-ticker="t6">Facebook Ads</span>
+    <span class="ti" data-ticker="t7">Google Ads</span>
+    <span class="ti" data-ticker="t8">Social Media Content</span>
+    <span class="ti" data-ticker="t9">Instagram Reels</span>
+    <span class="ti" data-ticker="t10">Event Promotion</span>
+    <span class="ti" data-ticker="t1">Graphic Design</span>
+    <span class="ti" data-ticker="t2">Video Production</span>
+    <span class="ti" data-ticker="t3">Brand Identity</span>
+    <span class="ti" data-ticker="t4">Print Coordination</span>
+    <span class="ti" data-ticker="t5">Website Design</span>
+    <span class="ti" data-ticker="t6">Facebook Ads</span>
+    <span class="ti" data-ticker="t7">Google Ads</span>
+    <span class="ti" data-ticker="t8">Social Media Content</span>
+    <span class="ti" data-ticker="t9">Instagram Reels</span>
+    <span class="ti" data-ticker="t10">Event Promotion</span>
   </div>
 </div>
 
@@ -1101,56 +1259,56 @@ footer a:hover{color:var(--accent)}
 <div id="services" class="section-divider">
   <div class="svc-wrap">
     <div class="sec-hd">
-      <div class="section-tag">What We Do</div>
-      <h2 class="section-h">One Studio.<br>Everything Your Business Needs Online.</h2>
-      <p class="section-desc">Websites. Brand design. Video. Ads. We handle all of it — whether you're starting from zero or already have a vision you need brought to life.</p>
+      <div class="section-tag" data-t="svc.tag">What We Do</div>
+      <h2 class="section-h" data-th="svc.h2">One Studio.<br>Everything Your Business Needs Online.</h2>
+      <p class="section-desc" data-t="svc.desc">Websites. Brand design. Video. Ads. We handle all of it — whether you're starting from zero or already have a vision you need brought to life.</p>
     </div>
 
-    <div class="svc-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="svc-grid">
 
       <div class="svc">
-        <p class="svc-num">01 · Most Requested</p>
+        <p class="svc-num" data-t="svc1.num">01 · Most Requested</p>
         <div class="svc-ic">◎</div>
-        <h3>Websites & Online Presence</h3>
-        <p>When a potential customer Googles your business and finds nothing — they call your competitor. It happens dozens of times a day and you never see it. A professional website stops that leak. We design it, host it, maintain it, and set up Google Business and Maps so you're showing up where it counts.</p>
+        <h3 data-t="svc1.h3">Websites & Online Presence</h3>
+        <p data-t="svc1.p">When a potential customer Googles your business and finds nothing — they call your competitor. It happens dozens of times a day and you never see it. A professional website stops that leak. We design it, host it, maintain it, and set up Google Business and Maps so you're showing up where it counts.</p>
         <div class="tags">
-          <span class="tag">Website Design</span>
-          <span class="tag">Custom Pages</span>
-          <span class="tag">Domain & Hosting</span>
+          <span class="tag" data-t="tag.webdesign">Website Design</span>
+          <span class="tag" data-t="tag.custompages">Custom Pages</span>
+          <span class="tag" data-t="tag.hosting">Domain &amp; Hosting</span>
           <span class="tag">SEO</span>
-          <span class="tag">Google Business Setup</span>
-          <span class="tag">Monthly Maintenance</span>
+          <span class="tag" data-t="tag.googlebiz">Google Business Setup</span>
+          <span class="tag" data-t="tag.maintenance">Monthly Maintenance</span>
         </div>
       </div>
 
       <div class="svc">
-        <p class="svc-num">02 · Brand Authority</p>
+        <p class="svc-num" data-t="svc2.num">02 · Brand Authority</p>
         <div class="svc-ic">✦</div>
-        <h3>Brand Design & Graphics</h3>
-        <p>Already have a name, a color, a logo concept in your head? We're the ones who make it real. If you're starting from scratch, we build the whole system. Either way, every visual asset — logo, posts, flyers, business cards — gets built to match and grow with your business.</p>
+        <h3 data-t="svc2.h3">Brand Design & Graphics</h3>
+        <p data-t="svc2.p">Already have a name, a color, a logo concept in your head? We're the ones who make it real. If you're starting from scratch, we build the whole system. Either way, every visual asset — logo, posts, flyers, business cards — gets built to match and grow with your business.</p>
         <div class="tags">
-          <span class="tag">Logo Design</span>
-          <span class="tag">Brand Identity</span>
-          <span class="tag">Social Media Posts</span>
-          <span class="tag">Instagram Content</span>
-          <span class="tag">Flyers</span>
-          <span class="tag">Business Cards</span>
-          <span class="tag">Banners & Signage</span>
-          <span class="tag">Print Coordination</span>
+          <span class="tag" data-t="tag.logo">Logo Design</span>
+          <span class="tag" data-t="tag.brand">Brand Identity</span>
+          <span class="tag" data-t="tag.social">Social Media Posts</span>
+          <span class="tag" data-t="tag.insta">Instagram Content</span>
+          <span class="tag" data-t="tag.flyers">Flyers</span>
+          <span class="tag" data-t="tag.biz">Business Cards</span>
+          <span class="tag" data-t="tag.banners">Banners &amp; Signage</span>
+          <span class="tag" data-t="tag.print">Print Coordination</span>
         </div>
       </div>
 
       <div class="svc">
-        <p class="svc-num">03 · Content & Video</p>
+        <p class="svc-num" data-t="svc3.num">03 · Content &amp; Video</p>
         <div class="svc-ic">▶</div>
-        <h3>Video Production</h3>
-        <p>People scroll past text. They stop for video. A 30-second clip of your crew doing what they do builds more trust than any sales pitch ever could. We shoot, edit, and deliver content that shows your work the way it deserves to be seen — the kind of content customers save, share, and reach out after watching.</p>
+        <h3 data-t="svc3.h3">Video Production</h3>
+        <p data-t="svc3.p">People scroll past text. They stop for video. A 30-second clip of your crew doing what they do builds more trust than any sales pitch ever could. We shoot, edit, and deliver content that shows your work the way it deserves to be seen — the kind of content customers save, share, and reach out after watching.</p>
         <div class="tags">
-          <span class="tag">Intro Reels</span>
+          <span class="tag" data-t="tag.intros">Intro Reels</span>
           <span class="tag">Instagram Reels</span>
-          <span class="tag">Event Videos</span>
-          <span class="tag">Promo Content</span>
-          <span class="tag">Highlight Edits</span>
+          <span class="tag" data-t="tag.events">Event Videos</span>
+          <span class="tag" data-t="tag.promo">Promo Content</span>
+          <span class="tag" data-t="tag.highlights">Highlight Edits</span>
         </div>
       </div>
 
@@ -1160,23 +1318,23 @@ footer a:hover{color:var(--accent)}
     <div class="svc-ads">
       <div class="svc-ads-glow"></div>
       <div>
-        <div class="svc-ads-label">04 · Paid Advertising</div>
-        <h3>Facebook Ads & Google Ads Management</h3>
-        <p class="svc-ads-desc">
+        <div class="svc-ads-label" data-t="ads.label">04 · Paid Advertising</div>
+        <h3 data-t="ads.h3">Facebook Ads &amp; Google Ads Management</h3>
+        <p class="svc-ads-desc" data-t="ads.desc">
           Already have a website or brand? We'll run ads that match it. We create, launch, and manage Facebook and Google ad campaigns — everything from creative to copy to targeting — all branded to what you already have. No cookie-cutter ads. Every campaign is built around your business.
         </p>
-        <div class="ads-note">Standalone service — quoted separately. No package required.</div>
+        <div class="ads-note" data-t="ads.note">Standalone service — quoted separately. No package required.</div>
       </div>
       <div class="ads-channels">
         <div class="ads-ch">
           <span class="ads-ch-ic">📘</span>
-          <h5>Facebook & Instagram Ads</h5>
-          <p>Targeted campaigns that reach your ideal customer on the platforms they're already scrolling. We build the ad, write the copy, and manage the spend.</p>
+          <h5 data-t="ads.fb.h5">Facebook &amp; Instagram Ads</h5>
+          <p data-t="ads.fb.p">Targeted campaigns that reach your ideal customer on the platforms they're already scrolling. We build the ad, write the copy, and manage the spend.</p>
         </div>
         <div class="ads-ch">
           <span class="ads-ch-ic">🔍</span>
-          <h5>Google Search & Display Ads</h5>
-          <p>Show up when someone searches for exactly what you offer. We handle keywords, bidding, landing page alignment, and ongoing optimization.</p>
+          <h5 data-t="ads.goog.h5">Google Search &amp; Display Ads</h5>
+          <p data-t="ads.goog.p">Show up when someone searches for exactly what you offer. We handle keywords, bidding, landing page alignment, and ongoing optimization.</p>
         </div>
       </div>
     </div>
@@ -1188,25 +1346,25 @@ footer a:hover{color:var(--accent)}
 <div id="advantage">
   <div class="adv-inner">
     <div>
-      <div class="section-tag">Why Master Graphics</div>
-      <h2 class="section-h">You're Too Busy<br>to Be Your Own Designer.</h2>
-      <p class="section-desc" style="margin-top:.85rem">Most business owners know they need better branding — some have a full vision and just need someone to execute it right, others don't know where to start and need someone to take the wheel. Either way, that's exactly what we built this studio around.</p>
+      <div class="section-tag" data-t="adv.tag">Why Master Graphics</div>
+      <h2 class="section-h" data-th="adv.h2">You're Too Busy<br>to Be Your Own Designer.</h2>
+      <p class="section-desc" style="margin-top:.85rem" data-t="adv.desc">Most business owners know they need better branding — some have a full vision and just need someone to execute it right, others don't know where to start and need someone to take the wheel. Either way, that's exactly what we built this studio around.</p>
       <div class="big-stat-row">
         <div class="big-stat">
           <div class="big-stat-val">2<small>hr</small></div>
-          <div class="big-stat-lbl">From San Diego</div>
+          <div class="big-stat-lbl" data-t="bstat1.lbl">From San Diego</div>
         </div>
         <div class="big-stat">
           <div class="big-stat-val">EN</div>
-          <div class="big-stat-lbl">English-first, Pacific time</div>
+          <div class="big-stat-lbl" data-t="bstat2.lbl">English-first, Pacific time</div>
         </div>
         <div class="big-stat">
           <div class="big-stat-val">3<sup>+</sup></div>
-          <div class="big-stat-lbl">Industries served</div>
+          <div class="big-stat-lbl" data-t="bstat3.lbl">Industries served</div>
         </div>
         <div class="big-stat">
           <div class="big-stat-val">1<sup>wk</sup></div>
-          <div class="big-stat-lbl">Avg. delivery time</div>
+          <div class="big-stat-lbl" data-t="bstat4.lbl">Avg. delivery time</div>
         </div>
       </div>
     </div>
@@ -1215,29 +1373,29 @@ footer a:hover{color:var(--accent)}
       <li class="adv-item">
         <div class="adv-num">01</div>
         <div class="adv-txt">
-          <h4>You Have the Vision — We Make It Real</h4>
-          <p>Whether you know exactly what you want — the name, the colors, the logo concept — or you're starting from a blank page, we work with where you are. We don't ask you to figure it out first. That's our job.</p>
+          <h4 data-t="adv1.h4">You Have the Vision — We Make It Real</h4>
+          <p data-t="adv1.p">Whether you know exactly what you want — the name, the colors, the logo concept — or you're starting from a blank page, we work with where you are. We don't ask you to figure it out first. That's our job.</p>
         </div>
       </li>
       <li class="adv-item">
         <div class="adv-num">02</div>
         <div class="adv-txt">
-          <h4>We Do the Legwork — You Do Nothing</h4>
-          <p>Tell us your business name and what you need. We find your existing photos, study your industry, research your competitors, and build from there. Our clients don't send us a single file. We've done it that way since day one.</p>
+          <h4 data-t="adv2.h4">We Do the Legwork — You Do Nothing</h4>
+          <p data-t="adv2.p">Tell us your business name and what you need. We find your existing photos, study your industry, research your competitors, and build from there. Our clients don't send us a single file. We've done it that way since day one.</p>
         </div>
       </li>
       <li class="adv-item">
         <div class="adv-num">03</div>
         <div class="adv-txt">
-          <h4>US Clients, Baja Prices</h4>
-          <p>We're based in Ensenada — two hours from San Diego, same time zone. You get agency-level creative for a fraction of what a US studio charges, and you're not sacrificing quality or speed to get it.</p>
+          <h4 data-t="adv3.h4">US Clients, Baja Prices</h4>
+          <p data-t="adv3.p">We're based in Ensenada — two hours from San Diego, same time zone. You get agency-level creative for a fraction of what a US studio charges, and you're not sacrificing quality or speed to get it.</p>
         </div>
       </li>
       <li class="adv-item">
         <div class="adv-num">04</div>
         <div class="adv-txt">
-          <h4>One Call. One Studio. All of It.</h4>
-          <p>Website, logo, flyer, reel, ads, print — it all comes from us. You're not coordinating three freelancers, an ad agency, and a printer. You talk to one person and it gets done right.</p>
+          <h4 data-t="adv4.h4">One Call. One Studio. All of It.</h4>
+          <p data-t="adv4.p">Website, logo, flyer, reel, ads, print — it all comes from us. You're not coordinating three freelancers, an ad agency, and a printer. You talk to one person and it gets done right.</p>
         </div>
       </li>
     </ul>
@@ -1249,58 +1407,56 @@ footer a:hover{color:var(--accent)}
   <div class="work-wrap">
     <div class="sec-hd-row">
       <div>
-        <div class="section-tag">Our Work</div>
-        <h2 class="section-h">We Let the Work<br>Do the Talking.</h2>
+        <div class="section-tag" data-t="work.tag">Our Work</div>
+        <h2 class="section-h" data-th="work.h2">We Let the Work<br>Do the Talking.</h2>
       </div>
-      <a href="#contact" class="btn btn-g" style="flex-shrink:0">Start Your Project →</a>
+      <a href="#contact" class="btn btn-g" style="flex-shrink:0" data-t="work.cta">Start Your Project →</a>
     </div>
 
-    <!-- FEATURED: LUNAR PAINTING -->
+    <!-- FEATURED CASE -->
     <div class="case-featured">
       <div class="case-visual">
         <div class="cv-lunar">
-          <div class="cv-el" style="width:380px;height:380px;border:1px solid rgba(245,166,35,.18);top:-100px;right:-100px"></div>
-          <div class="cv-el" style="width:220px;height:220px;border:1px solid rgba(245,166,35,.28);top:-30px;right:-30px"></div>
-          <div class="cv-el" style="width:100px;height:100px;background:rgba(245,166,35,.06);top:50px;right:70px"></div>
-          <div class="cv-el" style="width:280px;height:280px;border:1px solid rgba(255,61,0,.15);bottom:-100px;left:-60px"></div>
-          <div class="cv-el" style="width:60px;height:60px;background:rgba(245,166,35,.12);bottom:80px;left:80px;border-radius:4px;transform:rotate(30deg)"></div>
-          <div style="position:relative;z-index:1;text-align:center;padding:2rem">
-            <div style="font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:-.05em;color:#F5A623;line-height:.95;text-shadow:0 0 60px rgba(245,166,35,.3)">LUNAR<br><span style="color:#fff;-webkit-text-stroke:1px rgba(245,166,35,.5)">PAINTING</span></div>
-            <div style="font-family:'Poppins',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,166,35,.5);margin-top:.75rem">Commercial Painting · Baja California</div>
+          <div class="cv-el" style="width:300px;height:300px;border:1px solid rgba(245,166,35,.15);top:-80px;right:-80px"></div>
+          <div class="cv-el" style="width:180px;height:180px;background:rgba(245,166,35,.05);bottom:-40px;left:-40px"></div>
+          <div class="cv-el" style="width:120px;height:120px;border:1px solid rgba(255,61,0,.2);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="font-family:var(--poppins);font-weight:900;font-size:3.5rem;color:var(--gold);letter-spacing:-.04em;line-height:1">LP</div>
+            <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.25em;color:rgba(245,166,35,.5);margin-top:.5rem">Lunar Painting</div>
           </div>
-          <div class="cv-badge">Featured Project</div>
         </div>
+        <div class="cv-badge" data-t="case1.badge">Brand + Website — Delivered</div>
       </div>
       <div class="case-info">
         <div class="case-client">Lunar Painting</div>
-        <h3 class="case-title">He Said "I Want a Website." We Handled Everything Else.</h3>
-        <p class="case-desc">
+        <h3 class="case-title" data-t="case1.title">From Zero Online Presence to a Fully Branded Business.</h3>
+        <p class="case-desc" data-t="case1.desc">
           This client is on the field six days a week. No time to sit with a designer, dig up photos, write copy, or approve round after round of revisions. So we didn't ask him to. He told us what he needed. We found his existing work photos, wrote the copy, built the full site, and delivered it without him sending us a single file.
         </p>
         <div class="case-results">
           <div class="cr-item">
             <div class="cr-val">7days</div>
-            <div class="cr-lbl">Concept to delivered</div>
+            <div class="cr-lbl" data-t="cr1.lbl">Concept to delivered</div>
           </div>
           <div class="cr-item">
             <div class="cr-val">$0</div>
-            <div class="cr-lbl">Assets from client</div>
+            <div class="cr-lbl" data-t="cr2.lbl">Assets from client</div>
           </div>
           <div class="cr-item">
             <div class="cr-val">↑SEO</div>
-            <div class="cr-lbl">Found organically</div>
+            <div class="cr-lbl" data-t="cr3.lbl">Found organically</div>
           </div>
         </div>
         <div class="case-tags">
-          <span class="tag">Website Design</span>
-          <span class="tag">Brand Identity</span>
+          <span class="tag" data-t="tag.webdesign">Website Design</span>
+          <span class="tag" data-t="tag.brand">Brand Identity</span>
           <span class="tag">SEO</span>
-          <span class="tag">Asset Research</span>
+          <span class="tag" data-t="tag.assetresearch">Asset Research</span>
         </div>
-        <p style="font-size:.85rem;color:var(--text2);line-height:1.82;font-weight:300;margin-bottom:1.5rem">
+        <p style="font-size:.85rem;color:var(--text2);line-height:1.82;font-weight:300;margin-bottom:1.5rem" data-t="case1.extra">
           Before us, searching for Lunar Painting online returned a dead page. Now he has a fully branded site, real Google visibility, and a presence that positions him alongside — and ahead of — established competitors. His craft didn't change. How the market sees him did.
         </p>
-        <a href="#contact" class="case-link">Get the Same Treatment <span>→</span></a>
+        <a href="#contact" class="case-link" data-t="case1.link">Get the Same Treatment <span>→</span></a>
       </div>
     </div>
 
@@ -1316,13 +1472,13 @@ footer a:hover{color:var(--accent)}
             <span class="cc-placeholder-text">Beatus Cattus</span>
           </div>
           <div class="cc-badge-wrap">
-            <span class="cc-badge badge-done">Completed</span>
+            <span class="cc-badge badge-done" data-t="badge.done">Completed</span>
           </div>
         </div>
         <div class="cc-info">
           <div class="cc-client">Beatus Cattus</div>
-          <h4 class="cc-title">He Had the Vision. We Made It Real.</h4>
-          <p class="cc-desc">The client came in knowing exactly what he wanted — the company name, the color palette, the logo concept. Our job wasn't to invent a brand; it was to take his vision and execute it with precision. Logo, identity system, and deployment — all built around what he already saw in his head.</p>
+          <h4 class="cc-title" data-t="case2.title">He Had the Vision. We Made It Real.</h4>
+          <p class="cc-desc" data-t="case2.desc">The client came in knowing exactly what he wanted — the company name, the color palette, the logo concept. Our job wasn't to invent a brand; it was to take his vision and execute it with precision. Logo, identity system, and deployment — all built around what he already saw in his head.</p>
         </div>
       </div>
 
@@ -1335,23 +1491,23 @@ footer a:hover{color:var(--accent)}
             <span class="cc-placeholder-text">Keylime Maritime</span>
           </div>
           <div class="cc-badge-wrap">
-            <span class="cc-badge badge-coming">Coming Soon</span>
+            <span class="cc-badge badge-coming" data-t="badge.coming">Coming Soon</span>
           </div>
         </div>
         <div class="cc-info">
           <div class="cc-client">Keylime Maritime</div>
-          <h4 class="cc-title">Website, Brand & Premium Print</h4>
-          <p class="cc-desc">A maritime business that needed to look the part online — and offline. Website and brand handled the same way: we sourced the assets, built the identity, and they stayed on the water. We're also coordinating 1,000 premium business cards through a local print shop for clients who want to support local. Case study dropping soon.</p>
+          <h4 class="cc-title" data-t="case3.title">Website, Brand &amp; Premium Print</h4>
+          <p class="cc-desc" data-t="case3.desc">A maritime business that needed to look the part online — and offline. Website and brand handled the same way: we sourced the assets, built the identity, and they stayed on the water. We're also coordinating 1,000 premium business cards through a local print shop. Case study dropping soon.</p>
           <div class="tags" style="margin-top:1rem">
-            <span class="tag">Website</span>
-            <span class="tag">Brand Design</span>
-            <span class="tag">Business Cards</span>
-            <span class="tag">Print Coordination</span>
+            <span class="tag" data-t="tag.website">Website</span>
+            <span class="tag" data-t="tag.brand">Brand Design</span>
+            <span class="tag" data-t="tag.biz">Business Cards</span>
+            <span class="tag" data-t="tag.print">Print Coordination</span>
           </div>
         </div>
       </div>
 
-      <!-- Real Estate Agency (placeholder) -->
+      <!-- Real Estate Agency -->
       <div class="case-card">
         <div class="cc-visual">
           <div class="ccv-placeholder ccv-realestate">
@@ -1360,13 +1516,13 @@ footer a:hover{color:var(--accent)}
             <span class="cc-placeholder-text">Real Estate Agency</span>
           </div>
           <div class="cc-badge-wrap">
-            <span class="cc-badge badge-coming">Coming Soon</span>
+            <span class="cc-badge badge-coming" data-t="badge.coming">Coming Soon</span>
           </div>
         </div>
         <div class="cc-info">
-          <div class="cc-client">Real Estate Agency</div>
-          <h4 class="cc-title">Flyers & Print Campaign</h4>
-          <p class="cc-desc">Listings don't sell themselves. We designed a print campaign that made properties stand out in a crowded market — polished collateral that got picked up and kept. Case study dropping soon.</p>
+          <div class="cc-client" data-t="case4.client">Real Estate Agency</div>
+          <h4 class="cc-title" data-t="case4.title">Flyers &amp; Print Campaign</h4>
+          <p class="cc-desc" data-t="case4.desc">Listings don't sell themselves. We designed a print campaign that made properties stand out in a crowded market — polished collateral that got picked up and kept. Case study dropping soon.</p>
         </div>
       </div>
 
@@ -1376,33 +1532,33 @@ footer a:hover{color:var(--accent)}
 
 <!-- PROCESS -->
 <div id="process" class="section-divider">
-  <div id="process" style="background:var(--s1);border-top:1px solid var(--border)">
+  <div style="background:var(--s1);border-top:1px solid var(--border)">
     <div class="process-inner">
       <div class="sec-hd">
-        <div class="section-tag">How It Works</div>
-        <h2 class="section-h">Four Steps.<br>You're Involved in One.</h2>
-        <p class="section-desc">Most design processes drain the client — briefs, revision rounds, file requests, constant follow-ups. Ours doesn't. You make one move. Everything after that is on us.</p>
+        <div class="section-tag" data-t="proc.tag">How It Works</div>
+        <h2 class="section-h" data-th="proc.h2">Four Steps.<br>You're Involved in One.</h2>
+        <p class="section-desc" data-t="proc.desc">Most design processes drain the client — briefs, revision rounds, file requests, constant follow-ups. Ours doesn't. You make one move. Everything after that is on us.</p>
       </div>
       <div class="process-steps">
         <div class="ps">
           <div class="ps-num">01</div>
-          <h4>You Tell Us What You Need</h4>
-          <p>One conversation — call, text, or WhatsApp. Tell us what your business does and what problem you're trying to solve. Already have a vision? Walk us through it. Starting from zero? We've got questions that move fast.</p>
+          <h4 data-t="ps1.h4">You Tell Us What You Need</h4>
+          <p data-t="ps1.p">One conversation — call, text, or WhatsApp. Tell us what your business does and what problem you're trying to solve. Already have a vision? Walk us through it. Starting from zero? We've got questions that move fast.</p>
         </div>
         <div class="ps">
           <div class="ps-num">02</div>
-          <h4>We Research Everything</h4>
-          <p>We study your business, find existing photos and assets, look at what your competitors are doing, and figure out exactly what your customers are actually responding to. You don't lift a finger.</p>
+          <h4 data-t="ps2.h4">We Research Everything</h4>
+          <p data-t="ps2.p">We study your business, find existing photos and assets, look at what your competitors are doing, and figure out exactly what your customers are actually responding to. You don't lift a finger.</p>
         </div>
         <div class="ps">
           <div class="ps-num">03</div>
-          <h4>We Build It Right</h4>
-          <p>Design, copy, layout, SEO — all handled. You get a finished product, not a rough draft that needs ten rounds of changes. We build it to ship, not to stall.</p>
+          <h4 data-t="ps3.h4">We Build It Right</h4>
+          <p data-t="ps3.p">Design, copy, layout, SEO — all handled. You get a finished product, not a rough draft that needs ten rounds of changes. We build it to ship, not to stall.</p>
         </div>
         <div class="ps">
           <div class="ps-num">04</div>
-          <h4>Your Business Goes Live</h4>
-          <p>Fast turnaround. No invoice surprises. You go back to your field, your crew, your customers — and your business now looks the way it deserves to.</p>
+          <h4 data-t="ps4.h4">Your Business Goes Live</h4>
+          <p data-t="ps4.p">Fast turnaround. No invoice surprises. You go back to your field, your crew, your customers — and your business now looks the way it deserves to.</p>
         </div>
       </div>
     </div>
@@ -1413,79 +1569,79 @@ footer a:hover{color:var(--accent)}
 <div id="pricing" class="section-divider">
   <div class="pricing-inner">
     <div class="sec-hd">
-      <div class="section-tag">Pricing</div>
-      <h2 class="section-h">Know What You're<br>Paying Before You Start.</h2>
-      <p class="section-desc">Three clear packages. Every one includes more than the last. No surprise invoices, no hidden fees — just a real price for a real deliverable.</p>
+      <div class="section-tag" data-t="price.tag">Pricing</div>
+      <h2 class="section-h" data-th="price.h2">Know What You're<br>Paying Before You Start.</h2>
+      <p class="section-desc" data-t="price.desc">Three clear packages. Every one includes more than the last. No surprise invoices, no hidden fees — just a real price for a real deliverable.</p>
     </div>
 
     <div class="pricing-grid">
 
       <!-- $250 STARTER -->
       <div class="pkg">
-        <div class="pkg-name">Foundation</div>
-        <div class="pkg-tagline">Your business online — done right.</div>
+        <div class="pkg-name" data-t="pkg1.name">Foundation</div>
+        <div class="pkg-tagline" data-t="pkg1.tagline">Your business online — done right.</div>
         <div class="pkg-price"><sup>$</sup>250</div>
-        <div class="pkg-period">One-time payment · No monthly fees · No contracts</div>
-        <ul class="pkg-features">
-          <li>Custom multi-page website — designed around your business</li>
-          <li>Domain name + 1 full year of hosting included</li>
-          <li>Mobile-first and SEO-ready from day one</li>
-          <li>We source all your photos and assets — you send us nothing</li>
-          <li>Monthly maintenance so the site keeps running</li>
-          <li>Minor copy updates whenever your info changes</li>
+        <div class="pkg-period" data-t="pkg.period1">One-time payment · No monthly fees · No contracts</div>
+        <ul class="pkg-features" id="pkg1-features">
+          <li data-t="pkg1.f1">Custom multi-page website — designed around your business</li>
+          <li data-t="pkg1.f2">Domain name + 1 full year of hosting included</li>
+          <li data-t="pkg1.f3">Mobile-first and SEO-ready from day one</li>
+          <li data-t="pkg1.f4">We source all your photos and assets — you send us nothing</li>
+          <li data-t="pkg1.f5">Monthly maintenance so the site keeps running</li>
+          <li data-t="pkg1.f6">Minor copy updates whenever your info changes</li>
         </ul>
-        <a href="#contact" class="pkg-btn">Get Started — $250 →</a>
-        <p class="pkg-note">Additional pages and major redesigns quoted separately.</p>
+        <a href="#contact" class="pkg-btn" data-t="pkg1.btn">Get Started — $250 →</a>
+        <p class="pkg-note" data-t="pkg1.note">Additional pages and major redesigns quoted separately.</p>
       </div>
 
       <!-- $500 VISIBILITY PACK (FEATURED) -->
       <div class="pkg featured">
-        <div class="pkg-popular">Most Popular</div>
-        <div class="pkg-name">Visibility Pack</div>
-        <div class="pkg-tagline">Found on every platform that matters.</div>
+        <div class="pkg-popular" data-t="pkg.popular">Most Popular</div>
+        <div class="pkg-name" data-t="pkg2.name">Visibility Pack</div>
+        <div class="pkg-tagline" data-t="pkg2.tagline">Found on every platform that matters.</div>
         <div class="pkg-price"><sup>$</sup>500</div>
-        <div class="pkg-period">One-time payment · No monthly fees · No contracts</div>
-        <ul class="pkg-features">
-          <li>Everything in Foundation — full website included</li>
-          <li>Facebook Business page setup — profile pic, cover, first branded post</li>
-          <li>Google Business profile — show up on Maps and Google Search</li>
-          <li>All platforms connected to your website for consistent SEO</li>
-          <li>Cohesive branding across web, Facebook, and Google</li>
-          <li>Customers can find you, review you, and contact you everywhere</li>
+        <div class="pkg-period" data-t="pkg.period1">One-time payment · No monthly fees · No contracts</div>
+        <ul class="pkg-features" id="pkg2-features">
+          <li data-t="pkg2.f1">Everything in Foundation — full website included</li>
+          <li data-t="pkg2.f2">Facebook Business page setup — profile pic, cover, first branded post</li>
+          <li data-t="pkg2.f3">Google Business profile — show up on Maps and Google Search</li>
+          <li data-t="pkg2.f4">All platforms connected to your website for consistent SEO</li>
+          <li data-t="pkg2.f5">Cohesive branding across web, Facebook, and Google</li>
+          <li data-t="pkg2.f6">Customers can find you, review you, and contact you everywhere</li>
         </ul>
-        <a href="#contact" class="pkg-btn">Get Started — $500 →</a>
-        <p class="pkg-note">Best value for most small businesses. Covers everything a new customer needs to find you.</p>
+        <a href="#contact" class="pkg-btn" data-t="pkg2.btn">Get Started — $500 →</a>
+        <p class="pkg-note" data-t="pkg2.note">Best value for most small businesses. Covers everything a new customer needs to find you.</p>
       </div>
 
       <!-- $1000 FULL LAUNCH -->
       <div class="pkg premium">
-        <div class="pkg-badge-gold">Full Launch</div>
-        <div class="pkg-name">Complete Package</div>
-        <div class="pkg-tagline">From zero to running — everything included.</div>
+        <div class="pkg-badge-gold" data-t="pkg3.badge">Full Launch</div>
+        <div class="pkg-name" data-t="pkg3.name">Complete Package</div>
+        <div class="pkg-tagline" data-t="pkg3.tagline">From zero to running — everything included.</div>
         <div class="pkg-price"><sup>$</sup>1,000</div>
-        <div class="pkg-period">One-time payment · Ads period included</div>
+        <div class="pkg-period" data-t="pkg.period3">One-time payment · Ads period included</div>
         <div class="pkg-adspend">
-          <div class="pkg-adspend-val">$250 Ad Spend Included</div>
-          <div class="pkg-adspend-lbl">Real money allocated to your campaigns — baked into the price.</div>
+          <div class="pkg-adspend-val" data-t="pkg3.adval">$250 Ad Spend Included</div>
+          <div class="pkg-adspend-lbl" data-t="pkg3.adlbl">Real money allocated to your campaigns — baked into the price.</div>
         </div>
-        <ul class="pkg-features">
-          <li>Everything in Visibility Pack — website + Facebook + Google</li>
-          <li>Instagram profile setup — branded and connected</li>
-          <li>6 promotional videos / reels produced for your business</li>
-          <li>Facebook Ads — built, launched, and managed for you</li>
-          <li>Google Ads — built, launched, and managed for you</li>
-          <li>$250 of your payment goes directly into ad campaigns</li>
-          <li>We test, optimize, and maintain campaigns through the ad period</li>
+        <ul class="pkg-features" id="pkg3-features">
+          <li data-t="pkg3.f1">Everything in Visibility Pack — website + Facebook + Google</li>
+          <li data-t="pkg3.f2">Instagram profile setup — branded and connected</li>
+          <li data-t="pkg3.f3">6 promotional videos / reels produced for your business</li>
+          <li data-t="pkg3.f4">Facebook Ads — built, launched, and managed for you</li>
+          <li data-t="pkg3.f5">Google Ads — built, launched, and managed for you</li>
+          <li data-t="pkg3.f6">$250 of your payment goes directly into ad campaigns</li>
+          <li data-t="pkg3.f7">We test, optimize, and maintain campaigns through the ad period</li>
         </ul>
-        <a href="#contact" class="pkg-btn">Get Started — $1,000 →</a>
-        <p class="pkg-note" style="color:rgba(245,166,35,.55)">The full digital launch. Built for businesses that want to go from nothing to everywhere — fast.</p>
+        <a href="#contact" class="pkg-btn" data-t="pkg3.btn">Get Started — $1,000 →</a>
+        <p class="pkg-note" style="color:rgba(245,166,35,.55)" data-t="pkg3.note">The full digital launch. Built for businesses that want to go from nothing to everywhere — fast.</p>
       </div>
 
     </div>
 
     <div class="pricing-footer">
-      <p><strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns for businesses that just need the advertising piece. Quoted separately based on your goals and current setup.</p>
-      <a href="#contact" class="btn btn-g" style="flex-shrink:0;white-space:nowrap">Ask About Ads →</a>
+      <p data-t="price.footer"><strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns for businesses that just need the advertising piece. Quoted separately based on your goals and current setup.</p>
+      <a href="#contact" class="btn btn-g" style="flex-shrink:0;white-space:nowrap" data-t="price.footercta">Ask About Ads →</a>
     </div>
 
   </div>
@@ -1495,50 +1651,50 @@ footer a:hover{color:var(--accent)}
 <div id="contact" class="section-divider">
   <div class="contact-inner">
     <div class="sec-hd">
-      <div class="section-tag">Get In Touch</div>
-      <h2 class="section-h">What Would It Mean<br>to Have This Done?</h2>
+      <div class="section-tag" data-t="contact.tag">Get In Touch</div>
+      <h2 class="section-h" data-th="contact.h2">What Would It Mean<br>to Have This Done?</h2>
     </div>
     <div class="contact-grid">
       <div>
-        <div class="ci-tag">Direct Contact</div>
-        <h3>No brief.<br>No back-and-forth.<br>Just tell us what you need.</h3>
-        <p class="ci-desc">Have a vision already mapped out? Walk us through it — we'll execute. Not sure where to start? Tell us what your business does and what's been frustrating you. Either way, we ask the right questions and get moving fast.</p>
+        <div class="ci-tag" data-t="contact.subtag">Direct Contact</div>
+        <h3 data-th="contact.h3">No brief.<br>No back-and-forth.<br>Just tell us what you need.</h3>
+        <p class="ci-desc" data-t="contact.desc">Have a vision already mapped out? Walk us through it — we'll execute. Not sure where to start? Tell us what your business does and what's been frustrating you. Either way, we ask the right questions and get moving fast.</p>
         <div class="contact-rows">
           <div class="crow">
             <div class="crow-ic">📞</div>
             <div class="crow-info">
-              <div class="crow-lbl">Phone / WhatsApp</div>
+              <div class="crow-lbl" data-t="crow1.lbl">Phone / WhatsApp</div>
               <div class="crow-val"><a href="tel:+526463443435">(646) 344-3435</a></div>
             </div>
           </div>
           <div class="crow">
             <div class="crow-ic">📍</div>
             <div class="crow-info">
-              <div class="crow-lbl">Location</div>
+              <div class="crow-lbl" data-t="crow2.lbl">Location</div>
               <div class="crow-val">Ensenada, Baja California, México</div>
             </div>
           </div>
           <div class="crow">
             <div class="crow-ic">🕐</div>
             <div class="crow-info">
-              <div class="crow-lbl">Hours</div>
-              <div class="crow-val">Mon – Fri, 9 AM – 6 PM Pacific</div>
+              <div class="crow-lbl" data-t="crow3.lbl">Hours</div>
+              <div class="crow-val" data-t="crow3.val">Mon – Fri, 9 AM – 6 PM Pacific</div>
             </div>
           </div>
           <div class="crow">
             <div class="crow-ic">🌎</div>
             <div class="crow-info">
-              <div class="crow-lbl">We Serve</div>
-              <div class="crow-val">US businesses, English-first</div>
+              <div class="crow-lbl" data-t="crow4.lbl">We Serve</div>
+              <div class="crow-val" data-t="crow4.val">US businesses, English-first</div>
             </div>
           </div>
         </div>
         <div class="cta-buttons">
           <a href="https://wa.me/526463443435" target="_blank" rel="noopener" class="wa-btn">
-            💬 Message Us on WhatsApp
+            💬 <span data-t="wa.btn">Message Us on WhatsApp</span>
           </a>
           <a href="https://www.facebook.com/mastergraphics646" target="_blank" rel="noopener" class="fb-btn">
-            📘 Find Us on Facebook
+            📘 <span data-t="fb.btn">Find Us on Facebook</span>
           </a>
         </div>
       </div>
@@ -1546,47 +1702,47 @@ footer a:hover{color:var(--accent)}
       <form class="cf" onsubmit="doSubmit(event)">
         <div class="frow">
           <div class="fg">
-            <label>First Name</label>
-            <input type="text" placeholder="John" required>
+            <label data-t="form.fname">First Name</label>
+            <input type="text" data-tp="form.fname.ph" placeholder="John" required>
           </div>
           <div class="fg">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" required>
+            <label data-t="form.lname">Last Name</label>
+            <input type="text" data-tp="form.lname.ph" placeholder="Smith" required>
           </div>
         </div>
         <div class="fg">
-          <label>Email Address</label>
-          <input type="email" placeholder="john@yourcompany.com" required>
+          <label data-t="form.email">Email Address</label>
+          <input type="email" data-tp="form.email.ph" placeholder="john@yourcompany.com" required>
         </div>
         <div class="fg">
-          <label>Phone (optional)</label>
+          <label data-t="form.phone">Phone (optional)</label>
           <input type="tel" placeholder="+1 (555) 000-0000">
         </div>
         <div class="fg">
-          <label>What Do You Need?</label>
-          <select>
-            <option value="">Select a service…</option>
-            <optgroup label="Packages">
-              <option>Foundation Package — $250 (Website + Hosting)</option>
-              <option>Visibility Pack — $500 (Website + Facebook + Google)</option>
-              <option>Complete Package — $1,000 (Full Launch + Ads + Videos)</option>
+          <label data-t="form.service">What Do You Need?</label>
+          <select id="serviceSelect">
+            <option value="" data-t="select.placeholder">Select a service…</option>
+            <optgroup label="Packages" id="optgrp1" data-t-label="select.grp1">
+              <option data-t="select.pkg1">Foundation Package — $250 (Website + Hosting)</option>
+              <option data-t="select.pkg2">Visibility Pack — $500 (Website + Facebook + Google)</option>
+              <option data-t="select.pkg3">Complete Package — $1,000 (Full Launch + Ads + Videos)</option>
             </optgroup>
-            <optgroup label="Standalone Services">
-              <option>Facebook Ads / Google Ads Management</option>
-              <option>Logo & Brand Design</option>
-              <option>Social Media Content</option>
-              <option>Video Production</option>
-              <option>Flyers, Business Cards, or Print</option>
-              <option>Banners & Signage</option>
+            <optgroup label="Standalone Services" id="optgrp2" data-t-label="select.grp2">
+              <option data-t="select.s1">Facebook Ads / Google Ads Management</option>
+              <option data-t="select.s2">Logo &amp; Brand Design</option>
+              <option data-t="select.s3">Social Media Content</option>
+              <option data-t="select.s4">Video Production</option>
+              <option data-t="select.s5">Flyers, Business Cards, or Print</option>
+              <option data-t="select.s6">Banners &amp; Signage</option>
             </optgroup>
-            <option>Not sure yet — let's talk</option>
+            <option data-t="select.notsure">Not sure yet — let's talk</option>
           </select>
         </div>
         <div class="fg">
-          <label>Tell Us About Your Business</label>
-          <textarea placeholder="What do you do? Do you already have a brand or vision in mind? What's been the problem? Even two sentences is enough — we'll ask the right questions from there."></textarea>
+          <label data-t="form.biz">Tell Us About Your Business</label>
+          <textarea data-tp="form.biz.ph" placeholder="What do you do? Do you already have a brand or vision in mind? What's been the problem? Even two sentences is enough — we'll ask the right questions from there."></textarea>
         </div>
-        <button type="submit" class="sub-btn">Send Message →</button>
+        <button type="submit" class="sub-btn" data-t="form.submit">Send Message →</button>
       </form>
     </div>
   </div>
@@ -1596,56 +1752,451 @@ footer a:hover{color:var(--accent)}
 <div class="footer-wrap">
   <div class="footer-inner">
     <p>© 2026 <strong>Master Graphics 646</strong> · Ensenada, Baja California, México</p>
-    <p>Websites · Brand Design · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a></p>
+    <p data-t="footer.services">Websites · Brand Design · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a></p>
   </div>
 </div>
 
 <script>
-function doSubmit(e){
-  e.preventDefault();
-  var btn=e.target.querySelector('.sub-btn');
-  btn.textContent='✓ Message Sent!';
-  btn.style.background='#25D366';
-  btn.disabled=true;
-  setTimeout(function(){
-    btn.textContent='Send Message →';
-    btn.style.background='';
-    btn.disabled=false;
-    e.target.reset();
-  },3500);
-}
+/* ─── TRANSLATIONS ─── */
+var T = {
+  en: {
+    /* NAV */
+    'nav.services':'Services',
+    'nav.work':'Work',
+    'nav.process':'Process',
+    'nav.pricing':'Pricing',
+    'nav.cta':'Get a Quote →',
+    /* HERO */
+    'hero.badge':'Creative Agency · Ensenada, Baja California',
+    'hero.h1':'If They Can\'t Find You,<br><em>They Can\'t Hire You.</em>',
+    'hero.sub':'We build websites, brand identities, video content, and run ads for small businesses that are tired of being invisible. Already have a vision? We make it real. Starting from zero? We handle everything — no files, no back-and-forth, just results.',
+    'hero.cta1':'Get a Free Quote →',
+    'hero.cta2':'See Our Work',
+    'stat1.lbl':'Full website, all-in',
+    'stat2.lbl':'Files you need to send',
+    'stat3.lbl':'Less than US agency rates',
+    'stat4.lbl':'Studio for everything',
+    /* TICKER */
+    't1':'Graphic Design','t2':'Video Production','t3':'Brand Identity',
+    't4':'Print Coordination','t5':'Website Design','t6':'Facebook Ads',
+    't7':'Google Ads','t8':'Social Media Content','t9':'Instagram Reels','t10':'Event Promotion',
+    /* SERVICES */
+    'svc.tag':'What We Do',
+    'svc.h2':'One Studio.<br>Everything Your Business Needs Online.',
+    'svc.desc':'Websites. Brand design. Video. Ads. We handle all of it — whether you\'re starting from zero or already have a vision you need brought to life.',
+    'svc1.num':'01 · Most Requested',
+    'svc1.h3':'Websites & Online Presence',
+    'svc1.p':'When a potential customer Googles your business and finds nothing — they call your competitor. It happens dozens of times a day and you never see it. A professional website stops that leak. We design it, host it, maintain it, and set up Google Business and Maps so you\'re showing up where it counts.',
+    'svc2.num':'02 · Brand Authority',
+    'svc2.h3':'Brand Design & Graphics',
+    'svc2.p':'Already have a name, a color, a logo concept in your head? We\'re the ones who make it real. If you\'re starting from scratch, we build the whole system. Either way, every visual asset — logo, posts, flyers, business cards — gets built to match and grow with your business.',
+    'svc3.num':'03 · Content & Video',
+    'svc3.h3':'Video Production',
+    'svc3.p':'People scroll past text. They stop for video. A 30-second clip of your crew doing what they do builds more trust than any sales pitch ever could. We shoot, edit, and deliver content that shows your work the way it deserves to be seen — the kind of content customers save, share, and reach out after watching.',
+    'ads.label':'04 · Paid Advertising',
+    'ads.h3':'Facebook Ads & Google Ads Management',
+    'ads.desc':'Already have a website or brand? We\'ll run ads that match it. We create, launch, and manage Facebook and Google ad campaigns — everything from creative to copy to targeting — all branded to what you already have. No cookie-cutter ads. Every campaign is built around your business.',
+    'ads.note':'Standalone service — quoted separately. No package required.',
+    'ads.fb.h5':'Facebook & Instagram Ads',
+    'ads.fb.p':'Targeted campaigns that reach your ideal customer on the platforms they\'re already scrolling. We build the ad, write the copy, and manage the spend.',
+    'ads.goog.h5':'Google Search & Display Ads',
+    'ads.goog.p':'Show up when someone searches for exactly what you offer. We handle keywords, bidding, landing page alignment, and ongoing optimization.',
+    /* TAGS */
+    'tag.webdesign':'Website Design','tag.custompages':'Custom Pages','tag.hosting':'Domain & Hosting',
+    'tag.googlebiz':'Google Business Setup','tag.maintenance':'Monthly Maintenance',
+    'tag.logo':'Logo Design','tag.brand':'Brand Identity','tag.social':'Social Media Posts',
+    'tag.insta':'Instagram Content','tag.flyers':'Flyers','tag.biz':'Business Cards',
+    'tag.banners':'Banners & Signage','tag.print':'Print Coordination',
+    'tag.intros':'Intro Reels','tag.events':'Event Videos','tag.promo':'Promo Content',
+    'tag.highlights':'Highlight Edits','tag.assetresearch':'Asset Research','tag.website':'Website',
+    /* ADVANTAGE */
+    'adv.tag':'Why Master Graphics',
+    'adv.h2':'You\'re Too Busy<br>to Be Your Own Designer.',
+    'adv.desc':'Most business owners know they need better branding — some have a full vision and just need someone to execute it right, others don\'t know where to start and need someone to take the wheel. Either way, that\'s exactly what we built this studio around.',
+    'bstat1.lbl':'From San Diego','bstat2.lbl':'English-first, Pacific time',
+    'bstat3.lbl':'Industries served','bstat4.lbl':'Avg. delivery time',
+    'adv1.h4':'You Have the Vision — We Make It Real',
+    'adv1.p':'Whether you know exactly what you want — the name, the colors, the logo concept — or you\'re starting from a blank page, we work with where you are. We don\'t ask you to figure it out first. That\'s our job.',
+    'adv2.h4':'We Do the Legwork — You Do Nothing',
+    'adv2.p':'Tell us your business name and what you need. We find your existing photos, study your industry, research your competitors, and build from there. Our clients don\'t send us a single file. We\'ve done it that way since day one.',
+    'adv3.h4':'US Clients, Baja Prices',
+    'adv3.p':'We\'re based in Ensenada — two hours from San Diego, same time zone. You get agency-level creative for a fraction of what a US studio charges, and you\'re not sacrificing quality or speed to get it.',
+    'adv4.h4':'One Call. One Studio. All of It.',
+    'adv4.p':'Website, logo, flyer, reel, ads, print — it all comes from us. You\'re not coordinating three freelancers, an ad agency, and a printer. You talk to one person and it gets done right.',
+    /* WORK */
+    'work.tag':'Our Work',
+    'work.h2':'We Let the Work<br>Do the Talking.',
+    'work.cta':'Start Your Project →',
+    'case1.badge':'Brand + Website — Delivered',
+    'case1.title':'From Zero Online Presence to a Fully Branded Business.',
+    'case1.desc':'This client is on the field six days a week. No time to sit with a designer, dig up photos, write copy, or approve round after round of revisions. So we didn\'t ask him to. He told us what he needed. We found his existing work photos, wrote the copy, built the full site, and delivered it without him sending us a single file.',
+    'cr1.lbl':'Concept to delivered','cr2.lbl':'Assets from client','cr3.lbl':'Found organically',
+    'case1.extra':'Before us, searching for Lunar Painting online returned a dead page. Now he has a fully branded site, real Google visibility, and a presence that positions him alongside — and ahead of — established competitors. His craft didn\'t change. How the market sees him did.',
+    'case1.link':'Get the Same Treatment →',
+    'badge.done':'Completed','badge.coming':'Coming Soon',
+    'case2.title':'He Had the Vision. We Made It Real.',
+    'case2.desc':'The client came in knowing exactly what he wanted — the company name, the color palette, the logo concept. Our job wasn\'t to invent a brand; it was to take his vision and execute it with precision. Logo, identity system, and deployment — all built around what he already saw in his head.',
+    'case3.title':'Website, Brand & Premium Print',
+    'case3.desc':'A maritime business that needed to look the part online — and offline. Website and brand handled the same way: we sourced the assets, built the identity, and they stayed on the water. We\'re also coordinating 1,000 premium business cards through a local print shop. Case study dropping soon.',
+    'case4.client':'Real Estate Agency',
+    'case4.title':'Flyers & Print Campaign',
+    'case4.desc':'Listings don\'t sell themselves. We designed a print campaign that made properties stand out in a crowded market — polished collateral that got picked up and kept. Case study dropping soon.',
+    /* PROCESS */
+    'proc.tag':'How It Works',
+    'proc.h2':'Four Steps.<br>You\'re Involved in One.',
+    'proc.desc':'Most design processes drain the client — briefs, revision rounds, file requests, constant follow-ups. Ours doesn\'t. You make one move. Everything after that is on us.',
+    'ps1.h4':'You Tell Us What You Need',
+    'ps1.p':'One conversation — call, text, or WhatsApp. Tell us what your business does and what problem you\'re trying to solve. Already have a vision? Walk us through it. Starting from zero? We\'ve got questions that move fast.',
+    'ps2.h4':'We Research Everything',
+    'ps2.p':'We study your business, find existing photos and assets, look at what your competitors are doing, and figure out exactly what your customers are actually responding to. You don\'t lift a finger.',
+    'ps3.h4':'We Build It Right',
+    'ps3.p':'Design, copy, layout, SEO — all handled. You get a finished product, not a rough draft that needs ten rounds of changes. We build it to ship, not to stall.',
+    'ps4.h4':'Your Business Goes Live',
+    'ps4.p':'Fast turnaround. No invoice surprises. You go back to your field, your crew, your customers — and your business now looks the way it deserves to.',
+    /* PRICING */
+    'price.tag':'Pricing',
+    'price.h2':'Know What You\'re<br>Paying Before You Start.',
+    'price.desc':'Three clear packages. Every one includes more than the last. No surprise invoices, no hidden fees — just a real price for a real deliverable.',
+    'pkg1.name':'Foundation','pkg1.tagline':'Your business online — done right.',
+    'pkg.period1':'One-time payment · No monthly fees · No contracts',
+    'pkg1.f1':'Custom multi-page website — designed around your business',
+    'pkg1.f2':'Domain name + 1 full year of hosting included',
+    'pkg1.f3':'Mobile-first and SEO-ready from day one',
+    'pkg1.f4':'We source all your photos and assets — you send us nothing',
+    'pkg1.f5':'Monthly maintenance so the site keeps running',
+    'pkg1.f6':'Minor copy updates whenever your info changes',
+    'pkg1.btn':'Get Started — $250 →','pkg1.note':'Additional pages and major redesigns quoted separately.',
+    'pkg.popular':'Most Popular',
+    'pkg2.name':'Visibility Pack','pkg2.tagline':'Found on every platform that matters.',
+    'pkg2.f1':'Everything in Foundation — full website included',
+    'pkg2.f2':'Facebook Business page setup — profile pic, cover, first branded post',
+    'pkg2.f3':'Google Business profile — show up on Maps and Google Search',
+    'pkg2.f4':'All platforms connected to your website for consistent SEO',
+    'pkg2.f5':'Cohesive branding across web, Facebook, and Google',
+    'pkg2.f6':'Customers can find you, review you, and contact you everywhere',
+    'pkg2.btn':'Get Started — $500 →','pkg2.note':'Best value for most small businesses. Covers everything a new customer needs to find you.',
+    'pkg3.badge':'Full Launch','pkg3.name':'Complete Package','pkg3.tagline':'From zero to running — everything included.',
+    'pkg.period3':'One-time payment · Ads period included',
+    'pkg3.adval':'$250 Ad Spend Included',
+    'pkg3.adlbl':'Real money allocated to your campaigns — baked into the price.',
+    'pkg3.f1':'Everything in Visibility Pack — website + Facebook + Google',
+    'pkg3.f2':'Instagram profile setup — branded and connected',
+    'pkg3.f3':'6 promotional videos / reels produced for your business',
+    'pkg3.f4':'Facebook Ads — built, launched, and managed for you',
+    'pkg3.f5':'Google Ads — built, launched, and managed for you',
+    'pkg3.f6':'$250 of your payment goes directly into ad campaigns',
+    'pkg3.f7':'We test, optimize, and maintain campaigns through the ad period',
+    'pkg3.btn':'Get Started — $1,000 →',
+    'pkg3.note':'The full digital launch. Built for businesses that want to go from nothing to everywhere — fast.',
+    'price.footer':'<strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns for businesses that just need the advertising piece. Quoted separately based on your goals and current setup.',
+    'price.footercta':'Ask About Ads →',
+    /* CONTACT */
+    'contact.tag':'Get In Touch',
+    'contact.h2':'What Would It Mean<br>to Have This Done?',
+    'contact.subtag':'Direct Contact',
+    'contact.h3':'No brief.<br>No back-and-forth.<br>Just tell us what you need.',
+    'contact.desc':'Have a vision already mapped out? Walk us through it — we\'ll execute. Not sure where to start? Tell us what your business does and what\'s been frustrating you. Either way, we ask the right questions and get moving fast.',
+    'crow1.lbl':'Phone / WhatsApp','crow2.lbl':'Location','crow3.lbl':'Hours',
+    'crow3.val':'Mon – Fri, 9 AM – 6 PM Pacific',
+    'crow4.lbl':'We Serve','crow4.val':'US businesses, English-first',
+    'wa.btn':'Message Us on WhatsApp','fb.btn':'Find Us on Facebook',
+    'form.fname':'First Name','form.fname.ph':'John',
+    'form.lname':'Last Name','form.lname.ph':'Smith',
+    'form.email':'Email Address','form.email.ph':'john@yourcompany.com',
+    'form.phone':'Phone (optional)',
+    'form.service':'What Do You Need?',
+    'form.biz':'Tell Us About Your Business',
+    'form.biz.ph':'What do you do? Do you already have a brand or vision in mind? What\'s been the problem? Even two sentences is enough — we\'ll ask the right questions from there.',
+    'form.submit':'Send Message →',
+    'select.placeholder':'Select a service…',
+    'select.grp1':'Packages','select.grp2':'Standalone Services',
+    'select.pkg1':'Foundation Package — $250 (Website + Hosting)',
+    'select.pkg2':'Visibility Pack — $500 (Website + Facebook + Google)',
+    'select.pkg3':'Complete Package — $1,000 (Full Launch + Ads + Videos)',
+    'select.s1':'Facebook Ads / Google Ads Management',
+    'select.s2':'Logo & Brand Design','select.s3':'Social Media Content',
+    'select.s4':'Video Production','select.s5':'Flyers, Business Cards, or Print',
+    'select.s6':'Banners & Signage','select.notsure':'Not sure yet — let\'s talk',
+    /* FOOTER */
+    'footer.services':'Websites · Brand Design · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
+  },
 
-var nav=document.getElementById('mainnav');
-window.addEventListener('scroll',function(){
-  nav.style.padding=window.scrollY>60?'0.85rem 5rem':'1.4rem 5rem';
-  if(window.innerWidth<=960){
-    nav.style.padding=window.scrollY>60?'0.85rem 1.75rem':'1.1rem 1.75rem';
+  es: {
+    /* NAV */
+    'nav.services':'Servicios',
+    'nav.work':'Trabajo',
+    'nav.process':'Proceso',
+    'nav.pricing':'Precios',
+    'nav.cta':'Cotiza Gratis →',
+    /* HERO */
+    'hero.badge':'Agencia Creativa · Ensenada, Baja California',
+    'hero.h1':'Si No Te Encuentran,<br><em>No Te Contratan.</em>',
+    'hero.sub':'Creamos sitios web, identidades de marca, contenido en video y manejamos anuncios para negocios hartos de ser invisibles. ¿Ya tienes una visión? La hacemos realidad. ¿Empezando desde cero? Nosotros manejamos todo — sin archivos, sin idas y venidas, puro resultado.',
+    'hero.cta1':'Cotiza Gratis →',
+    'hero.cta2':'Ver Nuestro Trabajo',
+    'stat1.lbl':'Sitio web completo',
+    'stat2.lbl':'Archivos que nos envías',
+    'stat3.lbl':'Menos que agencias en EE.UU.',
+    'stat4.lbl':'Estudio para todo',
+    /* TICKER */
+    't1':'Diseño Gráfico','t2':'Producción de Video','t3':'Identidad de Marca',
+    't4':'Coordinación de Impresión','t5':'Diseño Web','t6':'Facebook Ads',
+    't7':'Google Ads','t8':'Contenido para Redes','t9':'Instagram Reels','t10':'Promoción de Eventos',
+    /* SERVICES */
+    'svc.tag':'Lo Que Hacemos',
+    'svc.h2':'Un Estudio.<br>Todo Lo Que Tu Negocio Necesita.',
+    'svc.desc':'Sitios web. Diseño de marca. Video. Anuncios. Lo manejamos todo — ya sea que empieces de cero o ya tengas una visión que necesitas hacer realidad.',
+    'svc1.num':'01 · El Más Solicitado',
+    'svc1.h3':'Sitios Web y Presencia Digital',
+    'svc1.p':'Cuando un cliente potencial busca tu negocio en Google y no encuentra nada — llama a tu competencia. Pasa decenas de veces al día y nunca te enteras. Un sitio web profesional detiene esa fuga. Lo diseñamos, alojamos, mantenemos y configuramos Google Business y Maps para que aparezcas donde importa.',
+    'svc2.num':'02 · Autoridad de Marca',
+    'svc2.h3':'Diseño de Marca y Gráficos',
+    'svc2.p':'¿Ya tienes un nombre, un color, un concepto de logo en la cabeza? Nosotros lo hacemos realidad. Si empiezas desde cero, construimos todo el sistema. De cualquier forma, cada elemento visual — logo, publicaciones, volantes, tarjetas — se construye para que coincida y crezca con tu negocio.',
+    'svc3.num':'03 · Contenido y Video',
+    'svc3.h3':'Producción de Video',
+    'svc3.p':'La gente pasa rápido el texto. Se detiene en el video. Un clip de 30 segundos de tu equipo haciendo lo que hace genera más confianza que cualquier argumento de venta. Grabamos, editamos y entregamos contenido que muestra tu trabajo como merece verse — el tipo de contenido que los clientes guardan, comparten y por el que te contactan.',
+    'ads.label':'04 · Publicidad Pagada',
+    'ads.h3':'Manejo de Facebook Ads y Google Ads',
+    'ads.desc':'¿Ya tienes sitio web o marca? Corremos anuncios que la reflejen. Creamos, lanzamos y manejamos campañas en Facebook y Google — desde el creativo hasta el copy y la segmentación — todo con la imagen de lo que ya tienes. Sin anuncios genéricos. Cada campaña se construye alrededor de tu negocio.',
+    'ads.note':'Servicio independiente — cotizado por separado. No requiere paquete.',
+    'ads.fb.h5':'Facebook e Instagram Ads',
+    'ads.fb.p':'Campañas dirigidas que llegan a tu cliente ideal en las plataformas donde ya navegan. Creamos el anuncio, escribimos el copy y manejamos el presupuesto.',
+    'ads.goog.h5':'Google Search y Display Ads',
+    'ads.goog.p':'Aparece cuando alguien busca exactamente lo que ofreces. Manejamos palabras clave, pujas, alineación de landing page y optimización continua.',
+    /* TAGS */
+    'tag.webdesign':'Diseño Web','tag.custompages':'Páginas Personalizadas','tag.hosting':'Dominio y Hosting',
+    'tag.googlebiz':'Perfil de Google Business','tag.maintenance':'Mantenimiento Mensual',
+    'tag.logo':'Diseño de Logo','tag.brand':'Identidad de Marca','tag.social':'Posts para Redes',
+    'tag.insta':'Contenido Instagram','tag.flyers':'Volantes','tag.biz':'Tarjetas de Presentación',
+    'tag.banners':'Banners y Letreros','tag.print':'Coordinación de Impresión',
+    'tag.intros':'Reels de Presentación','tag.events':'Videos de Eventos','tag.promo':'Contenido Promocional',
+    'tag.highlights':'Edición Highlight','tag.assetresearch':'Búsqueda de Recursos','tag.website':'Sitio Web',
+    /* ADVANTAGE */
+    'adv.tag':'Por Qué Master Graphics',
+    'adv.h2':'Estás Muy Ocupado<br>Para Ser Tu Propio Diseñador.',
+    'adv.desc':'La mayoría de los dueños de negocio saben que necesitan mejor marca — algunos tienen una visión clara y solo necesitan a alguien que la ejecute bien, otros no saben por dónde empezar y necesitan a alguien que tome las riendas. De cualquier manera, exactamente para eso construimos este estudio.',
+    'bstat1.lbl':'Desde San Diego','bstat2.lbl':'Inglés y español, hora del Pacífico',
+    'bstat3.lbl':'Industrias atendidas','bstat4.lbl':'Tiempo prom. de entrega',
+    'adv1.h4':'Tienes la Visión — Nosotros la Hacemos Realidad',
+    'adv1.p':'Ya sea que sepas exactamente lo que quieres — el nombre, los colores, el concepto del logo — o estés empezando desde una página en blanco, trabajamos desde donde estás. No te pedimos que lo figures primero. Ese es nuestro trabajo.',
+    'adv2.h4':'Nosotros Hacemos el Trabajo — Tú No Haces Nada',
+    'adv2.p':'Dinos el nombre de tu negocio y lo que necesitas. Encontramos tus fotos existentes, estudiamos tu industria, investigamos a tu competencia y construimos desde ahí. Nuestros clientes no nos envían ni un solo archivo. Así hemos trabajado desde el primer día.',
+    'adv3.h4':'Clientes en EE.UU., Precios de Baja',
+    'adv3.p':'Estamos en Ensenada — a dos horas de San Diego, misma zona horaria. Obtienes creatividad de nivel agencia por una fracción de lo que cobra un estudio estadounidense, sin sacrificar calidad ni velocidad.',
+    'adv4.h4':'Una Llamada. Un Estudio. Todo Incluido.',
+    'adv4.p':'Sitio web, logo, volante, reel, anuncios, impresión — todo viene de nosotros. No coordinas tres freelancers, una agencia de publicidad y una imprenta. Hablas con una persona y se hace bien.',
+    /* WORK */
+    'work.tag':'Nuestro Trabajo',
+    'work.h2':'Dejamos Que El Trabajo<br>Hable Por Nosotros.',
+    'work.cta':'Comienza Tu Proyecto →',
+    'case1.badge':'Marca + Sitio Web — Entregado',
+    'case1.title':'De Cero Presencia Online a un Negocio Totalmente Marcado.',
+    'case1.desc':'Este cliente está en el campo seis días a la semana. Sin tiempo para sentarse con un diseñador, buscar fotos, escribir copy o aprobar rondas de revisiones. Así que no se lo pedimos. Nos dijo lo que necesitaba. Encontramos sus fotos existentes, escribimos el copy, construimos el sitio completo y lo entregamos sin que él nos enviara un solo archivo.',
+    'cr1.lbl':'Del concepto a la entrega','cr2.lbl':'Recursos del cliente','cr3.lbl':'Encontrado orgánicamente',
+    'case1.extra':'Antes de nosotros, buscar Lunar Painting en línea devolvía una página muerta. Ahora tiene un sitio con marca completa, visibilidad real en Google y una presencia que lo posiciona a la par — y por delante — de competidores establecidos. Su oficio no cambió. Cómo lo ve el mercado, sí.',
+    'case1.link':'Obtén el Mismo Resultado →',
+    'badge.done':'Completado','badge.coming':'Próximamente',
+    'case2.title':'Él Tenía la Visión. Nosotros la Hicimos Realidad.',
+    'case2.desc':'El cliente llegó sabiendo exactamente lo que quería — el nombre de la empresa, la paleta de colores, el concepto del logo. Nuestro trabajo no era inventar una marca; era tomar su visión y ejecutarla con precisión. Logo, sistema de identidad y despliegue — todo construido alrededor de lo que ya veía en su cabeza.',
+    'case3.title':'Sitio Web, Marca e Impresión Premium',
+    'case3.desc':'Un negocio marítimo que necesitaba verse bien tanto en línea como fuera de ella. Sitio web y marca manejados de la misma manera: buscamos los recursos, construimos la identidad y ellos siguieron en el agua. También coordinamos 1,000 tarjetas de presentación premium. Caso de estudio próximamente.',
+    'case4.client':'Agencia Inmobiliaria',
+    'case4.title':'Volantes y Campaña de Impresión',
+    'case4.desc':'Las propiedades no se venden solas. Diseñamos una campaña de impresión que hizo destacar las propiedades en un mercado saturado — material pulido que se guardó y compartió. Caso de estudio próximamente.',
+    /* PROCESS */
+    'proc.tag':'Cómo Funciona',
+    'proc.h2':'Cuatro Pasos.<br>Tú Solo Participas en Uno.',
+    'proc.desc':'La mayoría de los procesos de diseño agotan al cliente — briefs, rondas de revisión, solicitudes de archivos, seguimientos constantes. El nuestro no. Tú haces un movimiento. Todo lo que sigue es nuestro.',
+    'ps1.h4':'Tú Nos Dices Lo Que Necesitas',
+    'ps1.p':'Una conversación — llamada, mensaje o WhatsApp. Dinos qué hace tu negocio y qué problema intentas resolver. ¿Ya tienes una visión? Cuéntanos. ¿Empezando desde cero? Tenemos preguntas que avanzan rápido.',
+    'ps2.h4':'Nosotros Investigamos Todo',
+    'ps2.p':'Estudiamos tu negocio, encontramos fotos y recursos existentes, vemos qué está haciendo tu competencia y descubrimos exactamente a qué responden tus clientes. Tú no mueves un dedo.',
+    'ps3.h4':'Lo Construimos Bien',
+    'ps3.p':'Diseño, copy, maquetación, SEO — todo resuelto. Recibes un producto terminado, no un borrador que necesita diez rondas de cambios. Lo construimos para lanzar, no para estancarse.',
+    'ps4.h4':'Tu Negocio Sale en Vivo',
+    'ps4.p':'Entrega rápida. Sin sorpresas en la factura. Vuelves a tu campo, tu equipo, tus clientes — y tu negocio ahora se ve como merece.',
+    /* PRICING */
+    'price.tag':'Precios',
+    'price.h2':'Sabe Lo Que Pagas<br>Antes de Empezar.',
+    'price.desc':'Tres paquetes claros. Cada uno incluye más que el anterior. Sin facturas sorpresa, sin cargos ocultos — solo un precio real por un entregable real.',
+    'pkg1.name':'La Base','pkg1.tagline':'Tu negocio en línea — listo y bien hecho.',
+    'pkg.period1':'Pago único · Sin mensualidades · Sin contratos',
+    'pkg1.f1':'Sitio web multipágina personalizado — diseñado alrededor de tu negocio',
+    'pkg1.f2':'Nombre de dominio + 1 año completo de hosting incluido',
+    'pkg1.f3':'Mobile-first y listo para SEO desde el primer día',
+    'pkg1.f4':'Buscamos todas tus fotos y recursos — tú no envías nada',
+    'pkg1.f5':'Mantenimiento mensual para que el sitio siga funcionando',
+    'pkg1.f6':'Actualizaciones menores de copy cuando tu información cambie',
+    'pkg1.btn':'Comenzar — $250 →','pkg1.note':'Páginas adicionales y rediseños mayores se cotizan por separado.',
+    'pkg.popular':'El Más Popular',
+    'pkg2.name':'Paquete Visibilidad','pkg2.tagline':'Encontrado en cada plataforma que importa.',
+    'pkg2.f1':'Todo en La Base — sitio web completo incluido',
+    'pkg2.f2':'Configuración de página de Facebook Business — foto de perfil, portada, primera publicación de marca',
+    'pkg2.f3':'Perfil de Google Business — aparece en Maps y búsqueda de Google',
+    'pkg2.f4':'Todas las plataformas conectadas a tu sitio para SEO consistente',
+    'pkg2.f5':'Marca cohesiva en web, Facebook y Google',
+    'pkg2.f6':'Los clientes te encuentran, te reseñan y te contactan en todos lados',
+    'pkg2.btn':'Comenzar — $500 →','pkg2.note':'Mejor valor para la mayoría de los negocios pequeños. Cubre todo lo que un nuevo cliente necesita para encontrarte.',
+    'pkg3.badge':'Lanzamiento Total','pkg3.name':'Paquete Completo','pkg3.tagline':'De cero a funcionando — todo incluido.',
+    'pkg.period3':'Pago único · Período de anuncios incluido',
+    'pkg3.adval':'$250 de Gasto en Anuncios Incluido',
+    'pkg3.adlbl':'Dinero real asignado a tus campañas — integrado en el precio.',
+    'pkg3.f1':'Todo en Paquete Visibilidad — sitio + Facebook + Google',
+    'pkg3.f2':'Configuración de perfil Instagram — con marca y conectado',
+    'pkg3.f3':'6 videos promocionales / reels producidos para tu negocio',
+    'pkg3.f4':'Facebook Ads — creados, lanzados y manejados por nosotros',
+    'pkg3.f5':'Google Ads — creados, lanzados y manejados por nosotros',
+    'pkg3.f6':'$250 de tu pago va directamente a las campañas',
+    'pkg3.f7':'Probamos, optimizamos y mantenemos las campañas durante el período de anuncios',
+    'pkg3.btn':'Comenzar — $1,000 →',
+    'pkg3.note':'El lanzamiento digital completo. Para negocios que quieren pasar de la nada a estar en todos lados — rápido.',
+    'price.footer':'<strong>¿Ya tienes sitio web o marca?</strong> También manejamos campañas independientes de Facebook Ads y Google Ads para negocios que solo necesitan la parte publicitaria. Se cotiza por separado según tus objetivos y configuración actual.',
+    'price.footercta':'Pregunta Sobre Anuncios →',
+    /* CONTACT */
+    'contact.tag':'Contáctanos',
+    'contact.h2':'¿Qué Significaría<br>Tenerlo Listo?',
+    'contact.subtag':'Contacto Directo',
+    'contact.h3':'Sin resúmenes.<br>Sin idas y venidas.<br>Solo dinos qué necesitas.',
+    'contact.desc':'¿Ya tienes una visión definida? Cuéntanosla — la ejecutamos. ¿No sabes por dónde empezar? Dinos qué hace tu negocio y qué te ha frustrado. De cualquier manera, hacemos las preguntas correctas y nos ponemos en marcha rápido.',
+    'crow1.lbl':'Teléfono / WhatsApp','crow2.lbl':'Ubicación','crow3.lbl':'Horario',
+    'crow3.val':'Lun – Vie, 9 AM – 6 PM Hora del Pacífico',
+    'crow4.lbl':'Atendemos','crow4.val':'Negocios en EE.UU. y México',
+    'wa.btn':'Escríbenos por WhatsApp','fb.btn':'Encuéntranos en Facebook',
+    'form.fname':'Nombre','form.fname.ph':'Juan',
+    'form.lname':'Apellido','form.lname.ph':'García',
+    'form.email':'Correo Electrónico','form.email.ph':'juan@tunegocio.com',
+    'form.phone':'Teléfono (opcional)',
+    'form.service':'¿Qué Necesitas?',
+    'form.biz':'Cuéntanos Sobre Tu Negocio',
+    'form.biz.ph':'¿A qué te dedicas? ¿Ya tienes una marca o visión en mente? ¿Cuál ha sido el problema? Dos oraciones son suficientes — hacemos las preguntas correctas desde ahí.',
+    'form.submit':'Enviar Mensaje →',
+    'select.placeholder':'Selecciona un servicio…',
+    'select.grp1':'Paquetes','select.grp2':'Servicios Independientes',
+    'select.pkg1':'Paquete La Base — $250 (Sitio + Hosting)',
+    'select.pkg2':'Paquete Visibilidad — $500 (Sitio + Facebook + Google)',
+    'select.pkg3':'Paquete Completo — $1,000 (Lanzamiento + Anuncios + Videos)',
+    'select.s1':'Manejo de Facebook Ads / Google Ads',
+    'select.s2':'Logo y Diseño de Marca','select.s3':'Contenido para Redes Sociales',
+    'select.s4':'Producción de Video','select.s5':'Volantes, Tarjetas o Impresión',
+    'select.s6':'Banners y Letreros','select.notsure':'No estoy seguro aún — hablemos',
+    /* FOOTER */
+    'footer.services':'Sitios Web · Diseño de Marca · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
   }
-});
+};
 
-var burger=document.getElementById('burger');
-var menu=document.getElementById('mobileMenu');
-var open=false;
-burger.addEventListener('click',function(){
-  open=!open;
-  menu.classList.toggle('open',open);
-  document.body.style.overflow=open?'hidden':'';
-});
+var currentLang = localStorage.getItem('mg646-lang') || 'en';
 
-function closeMobile(){
-  open=false;
-  menu.classList.remove('open');
-  document.body.style.overflow='';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('mg646-lang', lang);
+  document.documentElement.lang = lang;
+
+  var dict = T[lang];
+
+  /* Text content */
+  document.querySelectorAll('[data-t]').forEach(function(el) {
+    var key = el.getAttribute('data-t');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  /* Inner HTML (elements with <br>, <em>, <strong>, <a>) */
+  document.querySelectorAll('[data-th]').forEach(function(el) {
+    var key = el.getAttribute('data-th');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+
+  /* Placeholders */
+  document.querySelectorAll('[data-tp]').forEach(function(el) {
+    var key = el.getAttribute('data-tp');
+    if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+
+  /* Ticker — translate by data-ticker key */
+  document.querySelectorAll('[data-ticker]').forEach(function(el) {
+    var key = el.getAttribute('data-ticker');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  /* Select optgroups */
+  var og1 = document.getElementById('optgrp1');
+  var og2 = document.getElementById('optgrp2');
+  if (og1) og1.label = dict['select.grp1'] || og1.label;
+  if (og2) og2.label = dict['select.grp2'] || og2.label;
+
+  /* Select options */
+  document.querySelectorAll('select option[data-t]').forEach(function(el) {
+    var key = el.getAttribute('data-t');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  /* Update language button states — desktop */
+  var btnEN = document.getElementById('langEN');
+  var btnES = document.getElementById('langES');
+  if (btnEN) { btnEN.classList.toggle('active', lang === 'en'); }
+  if (btnES) { btnES.classList.toggle('active', lang === 'es'); }
+
+  /* Update language button states — mobile */
+  var mEN = document.getElementById('mobileLangEN');
+  var mES = document.getElementById('mobileLangES');
+  if (mEN) { mEN.classList.toggle('active', lang === 'en'); }
+  if (mES) { mES.classList.toggle('active', lang === 'es'); }
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var t=document.querySelector(a.getAttribute('href'));
-    if(t){
+/* ─── FORM SUBMIT ─── */
+function doSubmit(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('.sub-btn');
+  var orig = btn.textContent;
+  btn.textContent = '✓ ' + (currentLang === 'es' ? 'Mensaje Enviado!' : 'Message Sent!');
+  btn.style.background = '#25D366';
+  btn.disabled = true;
+  setTimeout(function() {
+    btn.textContent = orig;
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3500);
+}
+
+/* ─── NAV SCROLL ─── */
+var nav = document.getElementById('mainnav');
+window.addEventListener('scroll', function() {
+  var isMobile = window.innerWidth <= 960;
+  nav.style.padding = window.scrollY > 60
+    ? (isMobile ? '0.65rem 1.5rem' : '0.75rem 2.5rem')
+    : (isMobile ? '0.9rem 1.5rem' : '1.1rem 2.5rem');
+});
+
+/* ─── HAMBURGER ─── */
+var burger = document.getElementById('burger');
+var menu = document.getElementById('mobileMenu');
+var menuOpen = false;
+burger.addEventListener('click', function() {
+  menuOpen = !menuOpen;
+  menu.classList.toggle('open', menuOpen);
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
+});
+
+function closeMobile() {
+  menuOpen = false;
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(a.getAttribute('href'));
+    if (t) {
       e.preventDefault();
-      window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'});
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
     }
   });
+});
+
+/* ─── INIT ─── */
+document.addEventListener('DOMContentLoaded', function() {
+  setLang(currentLang);
 });
 </script>
 </body>
