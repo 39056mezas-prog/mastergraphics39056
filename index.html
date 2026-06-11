@@ -9,6 +9,11 @@
 <meta property="og:title" content="Master Graphics 646 | Creative Agency · Ensenada, Baja California">
 <meta property="og:description" content="Brand-aligned creative studio serving US businesses from Ensenada, Baja California.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1133,7 +1138,158 @@ h2.section-h{
   .process-steps{grid-template-columns:repeat(2,1fr)}
   .process-steps::before{display:none}
   .pricing-grid{grid-template-columns:1fr 1fr;gap:1.25rem}
-  .pricing-grid .pkg.premium{grid-column:1/-1}
+  .pricing-grid .pkg.design-pkg{grid-column:1/-1}
+}
+
+/* ── LOGO IMAGE ── */
+.logo-img{
+  width:34px;height:34px;border-radius:6px;
+  object-fit:contain;flex-shrink:0;
+}
+
+/* ── GRAPHIC DESIGN CALLOUT ── */
+.svc-design-callout{
+  margin-top:1.5rem;
+  background:linear-gradient(160deg,#0a0800 0%,#12100a 100%);
+  border:1px solid rgba(245,166,35,.22);
+  border-radius:12px;padding:2.5rem 2.75rem;
+  display:grid;grid-template-columns:1.2fr 1fr;
+  gap:3rem;align-items:center;
+  position:relative;overflow:hidden;
+  transition:border-color .3s;
+}
+.svc-design-callout:hover{border-color:rgba(245,166,35,.5)}
+
+.svc-design-glow{
+  position:absolute;width:500px;height:500px;
+  left:-200px;top:-150px;pointer-events:none;
+  background:radial-gradient(circle,rgba(245,166,35,.05) 0%,transparent 65%);
+}
+
+.svc-design-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--poppins);font-size:.6rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.16em;
+  color:var(--gold);background:rgba(245,166,35,.1);
+  border:1px solid rgba(245,166,35,.25);
+  padding:.25rem .75rem;border-radius:100px;margin-bottom:1.25rem;
+}
+
+.svc-design-callout h3{
+  font-family:var(--poppins);font-weight:800;font-size:1.5rem;
+  letter-spacing:-.03em;line-height:1.15;margin-bottom:.85rem;
+}
+
+.price-em{color:var(--gold);font-style:normal}
+
+.svc-design-callout>div>p{
+  font-size:.9rem;color:var(--text2);line-height:1.78;
+  font-weight:300;margin-bottom:1.5rem;
+}
+
+.design-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+
+.design-pill{
+  font-family:var(--poppins);font-size:.62rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:var(--gold);background:rgba(245,166,35,.08);
+  border:1px solid rgba(245,166,35,.2);
+  padding:.28rem .65rem;border-radius:100px;
+}
+
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--gold);color:#0a0800;
+  padding:.85rem 1.75rem;border-radius:7px;
+  font-family:var(--poppins);font-weight:700;
+  font-size:.82rem;letter-spacing:.04em;
+  text-decoration:none;transition:all .22s;
+}
+.btn-gold:hover{background:#e09500;transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,166,35,.3)}
+
+/* ── COMING SOON ── */
+.coming-section{margin-top:3rem}
+
+.coming-section-label{
+  font-family:var(--poppins);font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.2em;
+  color:var(--muted);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.coming-section-label::before{
+  content:'';display:block;width:20px;height:1px;background:var(--muted);
+}
+
+.coming-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+
+.coming-card{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:12px;padding:2rem 1.75rem;
+  position:relative;transition:border-color .3s;
+}
+.coming-card:hover{border-color:var(--border2)}
+
+.coming-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--poppins);font-size:.58rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);background:var(--s2);
+  border:1px solid var(--border2);
+  padding:.22rem .6rem;border-radius:100px;margin-bottom:1.25rem;
+}
+.coming-badge::before{content:'●';color:var(--accent);font-size:.4rem;margin-right:.05rem}
+
+.coming-ic{font-size:1.75rem;display:block;margin-bottom:1rem}
+
+.coming-card h4{
+  font-family:var(--poppins);font-weight:700;font-size:1.05rem;
+  letter-spacing:-.02em;margin-bottom:.6rem;
+}
+.coming-card p{font-size:.87rem;color:var(--text2);line-height:1.72;font-weight:300}
+
+.coming-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--poppins);font-size:.72rem;font-weight:600;
+  color:var(--muted);text-decoration:none;
+  letter-spacing:.02em;transition:color .2s;margin-top:1.25rem;
+}
+.coming-cta:hover{color:var(--text)}
+
+/* ── DESIGN PRICING TIER ── */
+.pkg-starting{
+  font-family:var(--poppins);font-size:.62rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--gold);margin-bottom:.3rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.pkg-starting::before{content:'';display:block;width:16px;height:1px;background:var(--gold)}
+
+.pkg.design-pkg{
+  background:linear-gradient(160deg,#0d0d0a 0%,#131008 100%);
+  border-color:rgba(245,166,35,.2);
+}
+.pkg.design-pkg:hover{border-color:rgba(245,166,35,.4)}
+.pkg.design-pkg .pkg-name{color:var(--gold)}
+.pkg.design-pkg .pkg-price{color:var(--gold)}
+.pkg.design-pkg .pkg-price sup{color:var(--gold)}
+.pkg.design-pkg .pkg-features li::before{color:var(--gold)}
+.pkg.design-pkg .pkg-btn{
+  background:transparent;color:var(--gold);
+  border:1px solid rgba(245,166,35,.4);
+}
+.pkg.design-pkg .pkg-btn:hover{
+  background:rgba(245,166,35,.08);border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+/* ── MOBILE FOR NEW ELEMENTS ── */
+@media(max-width:960px){
+  .svc-design-callout{grid-template-columns:1fr;gap:2rem}
+  .coming-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .svc-design-callout{padding:1.75rem 1.25rem}
+  .coming-card{padding:1.5rem 1.25rem}
 }
 </style>
 </head>
@@ -1160,7 +1316,8 @@ h2.section-h{
 <!-- NAV -->
 <nav id="mainnav">
   <a href="#" class="logo">
-    <div class="logo-mark">MG</div>
+    <img src="apple-touch-icon.png" alt="Master Graphics 646" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="logo-mark" style="display:none">MG</div>
     <div class="logo-text">
       MASTER GRAPHICS
       <span>646 · Ensenada, B.C.</span>
@@ -1339,10 +1496,53 @@ h2.section-h{
       </div>
     </div>
 
+    <!-- GRAPHIC DESIGN FROM $30 -->
+    <div class="svc-design-callout">
+      <div class="svc-design-glow"></div>
+      <div>
+        <div class="svc-design-badge" data-t="design.badge">Design Only · No Website Required</div>
+        <h3 data-th="design.h3">Graphic Design from <em class="price-em">$30</em></h3>
+        <p data-t="design.p">Not every business is ready for a full website. But every business needs to look professional today. A $30 flyer or social post done right is the difference between getting ignored and getting hired. We design logos, flyers, social posts, real estate graphics, event posters, banners — one piece at a time, no package needed.</p>
+        <a href="#contact" class="btn-gold" data-t="design.cta">Get a Custom Quote →</a>
+      </div>
+      <div>
+        <div class="design-pills">
+          <span class="design-pill" data-t="dpill.logo">Logo Design</span>
+          <span class="design-pill" data-t="dpill.flyers">Flyers</span>
+          <span class="design-pill" data-t="dpill.social">Social Media Posts</span>
+          <span class="design-pill" data-t="dpill.realestate">Real Estate Graphics</span>
+          <span class="design-pill" data-t="dpill.events">Event Posters</span>
+          <span class="design-pill" data-t="dpill.biz">Business Cards</span>
+          <span class="design-pill" data-t="dpill.banners">Banners &amp; Signage</span>
+          <span class="design-pill" data-t="dpill.promo">Promo Materials</span>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);font-family:var(--poppins);font-weight:500;line-height:1.65" data-t="design.note">Most single pieces start at $30. Custom quotes for larger projects or ongoing work.</p>
+      </div>
+    </div>
+
+    <!-- COMING SOON SERVICES -->
+    <div class="coming-section">
+      <div class="coming-section-label" data-t="coming.label">What's Coming</div>
+      <div class="coming-grid">
+        <div class="coming-card">
+          <div class="coming-badge" data-t="coming.badge">Coming Soon</div>
+          <span class="coming-ic">🖨️</span>
+          <h4 data-t="coming1.h4">Business Card Printing</h4>
+          <p data-t="coming1.p">We already design your cards — soon we'll print them too. We coordinate with trusted local print shops in Ensenada and get premium business cards delivered directly to you. No extra calls. No running around. One conversation with us. Done.</p>
+          <a href="#contact" class="coming-cta" data-t="coming.cta">Join the Waitlist →</a>
+        </div>
+        <div class="coming-card">
+          <div class="coming-badge" data-t="coming.badge">Coming Soon</div>
+          <span class="coming-ic">👕</span>
+          <h4 data-t="coming2.h4">Branded Apparel Printing</h4>
+          <p data-t="coming2.p">Put your brand on your team. We design the shirts and coordinate production with local suppliers in Ensenada — perfect for crews, client events, and branded merchandise. One conversation with us. Everything else is handled.</p>
+          <a href="#contact" class="coming-cta" data-t="coming.cta">Join the Waitlist →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
-
-<!-- WHY US -->
 <div id="advantage">
   <div class="adv-inner">
     <div>
@@ -1570,19 +1770,38 @@ h2.section-h{
   <div class="pricing-inner">
     <div class="sec-hd">
       <div class="section-tag" data-t="price.tag">Pricing</div>
-      <h2 class="section-h" data-th="price.h2">Know What You're<br>Paying Before You Start.</h2>
-      <p class="section-desc" data-t="price.desc">Three clear packages. Every one includes more than the last. No surprise invoices, no hidden fees — just a real price for a real deliverable.</p>
+      <h2 class="section-h" data-th="price.h2">From $30 to Full Presence.<br>No Surprises.</h2>
+      <p class="section-desc" data-t="price.desc">Whether you need a single design piece today or a complete digital launch — every option is priced clearly, delivered fully, and built around your business. No hidden fees. No back-and-forth.</p>
     </div>
 
     <div class="pricing-grid">
 
-      <!-- $250 STARTER -->
+      <!-- GRAPHIC DESIGN $30+ -->
+      <div class="pkg design-pkg">
+        <div class="pkg-starting" data-t="pkg0.starting">Design Only</div>
+        <div class="pkg-name" data-t="pkg0.name">Graphic Design</div>
+        <div class="pkg-tagline" data-t="pkg0.tagline">Not ready for a website? Start here.</div>
+        <div class="pkg-price"><sup>$</sup>30<span style="font-size:1.1rem;font-weight:600;color:var(--muted)">+</span></div>
+        <div class="pkg-period" data-t="pkg0.period">Per piece · No package needed · Custom quotes</div>
+        <ul class="pkg-features">
+          <li data-t="pkg0.f1">Logo design</li>
+          <li data-t="pkg0.f2">Real estate &amp; property flyers</li>
+          <li data-t="pkg0.f3">Social media graphics &amp; posts</li>
+          <li data-t="pkg0.f4">Event posters &amp; promotional materials</li>
+          <li data-t="pkg0.f5">Business card design — print-ready files</li>
+          <li data-t="pkg0.f6">Banners, signage &amp; any print piece</li>
+        </ul>
+        <a href="#contact" class="pkg-btn" data-t="pkg0.btn">Get a Custom Quote →</a>
+        <p class="pkg-note" data-t="pkg0.note">Most single pieces start at $30. Ongoing and bulk work quoted separately.</p>
+      </div>
+
+      <!-- $250 FOUNDATION -->
       <div class="pkg">
         <div class="pkg-name" data-t="pkg1.name">Foundation</div>
         <div class="pkg-tagline" data-t="pkg1.tagline">Your business online — done right.</div>
         <div class="pkg-price"><sup>$</sup>250</div>
         <div class="pkg-period" data-t="pkg.period1">One-time payment · No monthly fees · No contracts</div>
-        <ul class="pkg-features" id="pkg1-features">
+        <ul class="pkg-features">
           <li data-t="pkg1.f1">Custom multi-page website — designed around your business</li>
           <li data-t="pkg1.f2">Domain name + 1 full year of hosting included</li>
           <li data-t="pkg1.f3">Mobile-first and SEO-ready from day one</li>
@@ -1594,54 +1813,33 @@ h2.section-h{
         <p class="pkg-note" data-t="pkg1.note">Additional pages and major redesigns quoted separately.</p>
       </div>
 
-      <!-- $500 VISIBILITY PACK (FEATURED) -->
+      <!-- $500 FULL PRESENCE PACK (FEATURED) -->
       <div class="pkg featured">
         <div class="pkg-popular" data-t="pkg.popular">Most Popular</div>
-        <div class="pkg-name" data-t="pkg2.name">Visibility Pack</div>
-        <div class="pkg-tagline" data-t="pkg2.tagline">Found on every platform that matters.</div>
+        <div class="pkg-name" data-t="pkg2.name">Full Presence Pack</div>
+        <div class="pkg-tagline" data-t="pkg2.tagline">Everywhere your customers look — you're there.</div>
         <div class="pkg-price"><sup>$</sup>500</div>
         <div class="pkg-period" data-t="pkg.period1">One-time payment · No monthly fees · No contracts</div>
-        <ul class="pkg-features" id="pkg2-features">
-          <li data-t="pkg2.f1">Everything in Foundation — full website included</li>
-          <li data-t="pkg2.f2">Facebook Business page setup — profile pic, cover, first branded post</li>
-          <li data-t="pkg2.f3">Google Business profile — show up on Maps and Google Search</li>
-          <li data-t="pkg2.f4">All platforms connected to your website for consistent SEO</li>
-          <li data-t="pkg2.f5">Cohesive branding across web, Facebook, and Google</li>
-          <li data-t="pkg2.f6">Customers can find you, review you, and contact you everywhere</li>
+        <ul class="pkg-features">
+          <li data-t="pkg2.f1">Everything in Foundation — full custom website</li>
+          <li data-t="pkg2.f2">Facebook Business page — branded setup + first post</li>
+          <li data-t="pkg2.f3">Instagram profile — set up, branded, and ready to grow</li>
+          <li data-t="pkg2.f4">Google Business profile — Maps + Google Search visibility</li>
+          <li data-t="pkg2.f5">Professional business card design — print-ready files</li>
+          <li data-t="pkg2.f6">QR code on your card — one scan shows your whole business</li>
+          <li data-t="pkg2.f7">Linktree setup — we build it and connect your website, socials &amp; contact</li>
+          <li data-t="pkg2.f8">All platforms connected for consistent SEO</li>
+          <li data-t="pkg2.f9">We source all assets — you send us nothing</li>
         </ul>
         <a href="#contact" class="pkg-btn" data-t="pkg2.btn">Get Started — $500 →</a>
-        <p class="pkg-note" data-t="pkg2.note">Best value for most small businesses. Covers everything a new customer needs to find you.</p>
-      </div>
-
-      <!-- $1000 FULL LAUNCH -->
-      <div class="pkg premium">
-        <div class="pkg-badge-gold" data-t="pkg3.badge">Full Launch</div>
-        <div class="pkg-name" data-t="pkg3.name">Complete Package</div>
-        <div class="pkg-tagline" data-t="pkg3.tagline">From zero to running — everything included.</div>
-        <div class="pkg-price"><sup>$</sup>1,000</div>
-        <div class="pkg-period" data-t="pkg.period3">One-time payment · Ads period included</div>
-        <div class="pkg-adspend">
-          <div class="pkg-adspend-val" data-t="pkg3.adval">$250 Ad Spend Included</div>
-          <div class="pkg-adspend-lbl" data-t="pkg3.adlbl">Real money allocated to your campaigns — baked into the price.</div>
-        </div>
-        <ul class="pkg-features" id="pkg3-features">
-          <li data-t="pkg3.f1">Everything in Visibility Pack — website + Facebook + Google</li>
-          <li data-t="pkg3.f2">Instagram profile setup — branded and connected</li>
-          <li data-t="pkg3.f3">6 promotional videos / reels produced for your business</li>
-          <li data-t="pkg3.f4">Facebook Ads — built, launched, and managed for you</li>
-          <li data-t="pkg3.f5">Google Ads — built, launched, and managed for you</li>
-          <li data-t="pkg3.f6">$250 of your payment goes directly into ad campaigns</li>
-          <li data-t="pkg3.f7">We test, optimize, and maintain campaigns through the ad period</li>
-        </ul>
-        <a href="#contact" class="pkg-btn" data-t="pkg3.btn">Get Started — $1,000 →</a>
-        <p class="pkg-note" style="color:rgba(245,166,35,.55)" data-t="pkg3.note">The full digital launch. Built for businesses that want to go from nothing to everywhere — fast.</p>
+        <p class="pkg-note" data-t="pkg2.note">Everything your business needs to be found, followed, and remembered — in one shot.</p>
       </div>
 
     </div>
 
     <div class="pricing-footer">
-      <p data-t="price.footer"><strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns for businesses that just need the advertising piece. Quoted separately based on your goals and current setup.</p>
-      <a href="#contact" class="btn btn-g" style="flex-shrink:0;white-space:nowrap" data-t="price.footercta">Ask About Ads →</a>
+      <p data-th="price.footer"><strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns. Just need design work? Graphic design starts at $30 — no package required.</p>
+      <a href="#contact" class="btn btn-g" style="flex-shrink:0;white-space:nowrap" data-t="price.footercta">Get a Quote →</a>
     </div>
 
   </div>
@@ -1685,7 +1883,7 @@ h2.section-h{
             <div class="crow-ic">🌎</div>
             <div class="crow-info">
               <div class="crow-lbl" data-t="crow4.lbl">We Serve</div>
-              <div class="crow-val" data-t="crow4.val">US businesses, English-first</div>
+              <div class="crow-val" data-t="crow4.val">US &amp; Mexico businesses</div>
             </div>
           </div>
         </div>
@@ -1752,7 +1950,7 @@ h2.section-h{
 <div class="footer-wrap">
   <div class="footer-inner">
     <p>© 2026 <strong>Master Graphics 646</strong> · Ensenada, Baja California, México</p>
-    <p data-t="footer.services">Websites · Brand Design · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a></p>
+    <p data-th="footer.services">Websites · Brand Design · Video · Graphic Design from $30 · Facebook &amp; Google Ads · <a href="tel:+526463443435">(646) 344-3435</a></p>
   </div>
 </div>
 
@@ -1761,21 +1959,15 @@ h2.section-h{
 var T = {
   en: {
     /* NAV */
-    'nav.services':'Services',
-    'nav.work':'Work',
-    'nav.process':'Process',
-    'nav.pricing':'Pricing',
-    'nav.cta':'Get a Quote →',
+    'nav.services':'Services','nav.work':'Work','nav.process':'Process',
+    'nav.pricing':'Pricing','nav.cta':'Get a Quote →',
     /* HERO */
     'hero.badge':'Creative Agency · Ensenada, Baja California',
     'hero.h1':'If They Can\'t Find You,<br><em>They Can\'t Hire You.</em>',
     'hero.sub':'We build websites, brand identities, video content, and run ads for small businesses that are tired of being invisible. Already have a vision? We make it real. Starting from zero? We handle everything — no files, no back-and-forth, just results.',
-    'hero.cta1':'Get a Free Quote →',
-    'hero.cta2':'See Our Work',
-    'stat1.lbl':'Full website, all-in',
-    'stat2.lbl':'Files you need to send',
-    'stat3.lbl':'Less than US agency rates',
-    'stat4.lbl':'Studio for everything',
+    'hero.cta1':'Get a Free Quote →','hero.cta2':'See Our Work',
+    'stat1.lbl':'Full website, all-in','stat2.lbl':'Files you need to send',
+    'stat3.lbl':'Less than US agency rates','stat4.lbl':'Studio for everything',
     /* TICKER */
     't1':'Graphic Design','t2':'Video Production','t3':'Brand Identity',
     't4':'Print Coordination','t5':'Website Design','t6':'Facebook Ads',
@@ -1783,18 +1975,24 @@ var T = {
     /* SERVICES */
     'svc.tag':'What We Do',
     'svc.h2':'One Studio.<br>Everything Your Business Needs Online.',
-    'svc.desc':'Websites. Brand design. Video. Ads. We handle all of it — whether you\'re starting from zero or already have a vision you need brought to life.',
-    'svc1.num':'01 · Most Requested',
-    'svc1.h3':'Websites & Online Presence',
+    'svc.desc':'Websites. Brand design. Video. Ads. Design pieces from $30. We handle all of it — whether you\'re starting from zero or already have a vision you need brought to life.',
+    'svc1.num':'01 · Most Requested','svc1.h3':'Websites & Online Presence',
     'svc1.p':'When a potential customer Googles your business and finds nothing — they call your competitor. It happens dozens of times a day and you never see it. A professional website stops that leak. We design it, host it, maintain it, and set up Google Business and Maps so you\'re showing up where it counts.',
-    'svc2.num':'02 · Brand Authority',
-    'svc2.h3':'Brand Design & Graphics',
+    'svc2.num':'02 · Brand Authority','svc2.h3':'Brand Design & Graphics',
     'svc2.p':'Already have a name, a color, a logo concept in your head? We\'re the ones who make it real. If you\'re starting from scratch, we build the whole system. Either way, every visual asset — logo, posts, flyers, business cards — gets built to match and grow with your business.',
-    'svc3.num':'03 · Content & Video',
-    'svc3.h3':'Video Production',
-    'svc3.p':'People scroll past text. They stop for video. A 30-second clip of your crew doing what they do builds more trust than any sales pitch ever could. We shoot, edit, and deliver content that shows your work the way it deserves to be seen — the kind of content customers save, share, and reach out after watching.',
-    'ads.label':'04 · Paid Advertising',
-    'ads.h3':'Facebook Ads & Google Ads Management',
+    'svc3.num':'03 · Content & Video','svc3.h3':'Video Production',
+    'svc3.p':'People scroll past text. They stop for video. A 30-second clip of your crew doing what they do builds more trust than any sales pitch ever could. We shoot, edit, and deliver content that shows your work the way it deserves to be seen.',
+    /* GRAPHIC DESIGN CALLOUT */
+    'design.badge':'Design Only · No Website Required',
+    'design.h3':'Graphic Design from <em class="price-em">$30</em>',
+    'design.p':'Not every business is ready for a full website. But every business needs to look professional today. A $30 flyer or social post done right is the difference between getting ignored and getting hired. We design logos, flyers, social posts, real estate graphics, event posters, and banners — one piece at a time, no package needed.',
+    'design.cta':'Get a Custom Quote →',
+    'design.note':'Most single pieces start at $30. Custom quotes for larger projects or ongoing work.',
+    'dpill.logo':'Logo Design','dpill.flyers':'Flyers','dpill.social':'Social Media Posts',
+    'dpill.realestate':'Real Estate Graphics','dpill.events':'Event Posters',
+    'dpill.biz':'Business Cards','dpill.banners':'Banners & Signage','dpill.promo':'Promo Materials',
+    /* ADS */
+    'ads.label':'04 · Paid Advertising','ads.h3':'Facebook Ads & Google Ads Management',
     'ads.desc':'Already have a website or brand? We\'ll run ads that match it. We create, launch, and manage Facebook and Google ad campaigns — everything from creative to copy to targeting — all branded to what you already have. No cookie-cutter ads. Every campaign is built around your business.',
     'ads.note':'Standalone service — quoted separately. No package required.',
     'ads.fb.h5':'Facebook & Instagram Ads',
@@ -1809,11 +2007,19 @@ var T = {
     'tag.banners':'Banners & Signage','tag.print':'Print Coordination',
     'tag.intros':'Intro Reels','tag.events':'Event Videos','tag.promo':'Promo Content',
     'tag.highlights':'Highlight Edits','tag.assetresearch':'Asset Research','tag.website':'Website',
+    /* COMING SOON */
+    'coming.label':"What's Coming",
+    'coming.badge':'Coming Soon',
+    'coming.cta':'Join the Waitlist →',
+    'coming1.h4':'Business Card Printing',
+    'coming1.p':"We already design your cards — soon we'll print them too. We coordinate with trusted local print shops in Ensenada and get premium business cards delivered directly to you. No extra calls. No running around. One conversation with us. Done.",
+    'coming2.h4':'Branded Apparel Printing',
+    'coming2.p':'Put your brand on your team. We design the shirts and coordinate production with local suppliers in Ensenada — perfect for crews, client events, and branded merchandise. One conversation with us. Everything else is handled.',
     /* ADVANTAGE */
     'adv.tag':'Why Master Graphics',
     'adv.h2':'You\'re Too Busy<br>to Be Your Own Designer.',
     'adv.desc':'Most business owners know they need better branding — some have a full vision and just need someone to execute it right, others don\'t know where to start and need someone to take the wheel. Either way, that\'s exactly what we built this studio around.',
-    'bstat1.lbl':'From San Diego','bstat2.lbl':'English-first, Pacific time',
+    'bstat1.lbl':'From San Diego','bstat2.lbl':'English & Spanish, Pacific time',
     'bstat3.lbl':'Industries served','bstat4.lbl':'Avg. delivery time',
     'adv1.h4':'You Have the Vision — We Make It Real',
     'adv1.p':'Whether you know exactly what you want — the name, the colors, the logo concept — or you\'re starting from a blank page, we work with where you are. We don\'t ask you to figure it out first. That\'s our job.',
@@ -1824,9 +2030,7 @@ var T = {
     'adv4.h4':'One Call. One Studio. All of It.',
     'adv4.p':'Website, logo, flyer, reel, ads, print — it all comes from us. You\'re not coordinating three freelancers, an ad agency, and a printer. You talk to one person and it gets done right.',
     /* WORK */
-    'work.tag':'Our Work',
-    'work.h2':'We Let the Work<br>Do the Talking.',
-    'work.cta':'Start Your Project →',
+    'work.tag':'Our Work','work.h2':'We Let the Work<br>Do the Talking.','work.cta':'Start Your Project →',
     'case1.badge':'Brand + Website — Delivered',
     'case1.title':'From Zero Online Presence to a Fully Branded Business.',
     'case1.desc':'This client is on the field six days a week. No time to sit with a designer, dig up photos, write copy, or approve round after round of revisions. So we didn\'t ask him to. He told us what he needed. We found his existing work photos, wrote the copy, built the full site, and delivered it without him sending us a single file.',
@@ -1838,12 +2042,10 @@ var T = {
     'case2.desc':'The client came in knowing exactly what he wanted — the company name, the color palette, the logo concept. Our job wasn\'t to invent a brand; it was to take his vision and execute it with precision. Logo, identity system, and deployment — all built around what he already saw in his head.',
     'case3.title':'Website, Brand & Premium Print',
     'case3.desc':'A maritime business that needed to look the part online — and offline. Website and brand handled the same way: we sourced the assets, built the identity, and they stayed on the water. We\'re also coordinating 1,000 premium business cards through a local print shop. Case study dropping soon.',
-    'case4.client':'Real Estate Agency',
-    'case4.title':'Flyers & Print Campaign',
+    'case4.client':'Real Estate Agency','case4.title':'Flyers & Print Campaign',
     'case4.desc':'Listings don\'t sell themselves. We designed a print campaign that made properties stand out in a crowded market — polished collateral that got picked up and kept. Case study dropping soon.',
     /* PROCESS */
-    'proc.tag':'How It Works',
-    'proc.h2':'Four Steps.<br>You\'re Involved in One.',
+    'proc.tag':'How It Works','proc.h2':'Four Steps.<br>You\'re Involved in One.',
     'proc.desc':'Most design processes drain the client — briefs, revision rounds, file requests, constant follow-ups. Ours doesn\'t. You make one move. Everything after that is on us.',
     'ps1.h4':'You Tell Us What You Need',
     'ps1.p':'One conversation — call, text, or WhatsApp. Tell us what your business does and what problem you\'re trying to solve. Already have a vision? Walk us through it. Starting from zero? We\'ve got questions that move fast.',
@@ -1855,8 +2057,19 @@ var T = {
     'ps4.p':'Fast turnaround. No invoice surprises. You go back to your field, your crew, your customers — and your business now looks the way it deserves to.',
     /* PRICING */
     'price.tag':'Pricing',
-    'price.h2':'Know What You\'re<br>Paying Before You Start.',
-    'price.desc':'Three clear packages. Every one includes more than the last. No surprise invoices, no hidden fees — just a real price for a real deliverable.',
+    'price.h2':'From $30 to Full Presence.<br>No Surprises.',
+    'price.desc':'Whether you need a single design piece today or a complete digital launch — every option is priced clearly, delivered fully, and built around your business. No hidden fees. No back-and-forth.',
+    'pkg0.starting':'Design Only','pkg0.name':'Graphic Design',
+    'pkg0.tagline':'Not ready for a website? Start here.',
+    'pkg0.period':'Per piece · No package needed · Custom quotes',
+    'pkg0.f1':'Logo design',
+    'pkg0.f2':'Real estate & property flyers',
+    'pkg0.f3':'Social media graphics & posts',
+    'pkg0.f4':'Event posters & promotional materials',
+    'pkg0.f5':'Business card design — print-ready files',
+    'pkg0.f6':'Banners, signage & any print piece',
+    'pkg0.btn':'Get a Custom Quote →',
+    'pkg0.note':'Most single pieces start at $30. Ongoing and bulk work quoted separately.',
     'pkg1.name':'Foundation','pkg1.tagline':'Your business online — done right.',
     'pkg.period1':'One-time payment · No monthly fees · No contracts',
     'pkg1.f1':'Custom multi-page website — designed around your business',
@@ -1865,31 +2078,24 @@ var T = {
     'pkg1.f4':'We source all your photos and assets — you send us nothing',
     'pkg1.f5':'Monthly maintenance so the site keeps running',
     'pkg1.f6':'Minor copy updates whenever your info changes',
-    'pkg1.btn':'Get Started — $250 →','pkg1.note':'Additional pages and major redesigns quoted separately.',
+    'pkg1.btn':'Get Started — $250 →',
+    'pkg1.note':'Additional pages and major redesigns quoted separately.',
     'pkg.popular':'Most Popular',
-    'pkg2.name':'Visibility Pack','pkg2.tagline':'Found on every platform that matters.',
-    'pkg2.f1':'Everything in Foundation — full website included',
-    'pkg2.f2':'Facebook Business page setup — profile pic, cover, first branded post',
-    'pkg2.f3':'Google Business profile — show up on Maps and Google Search',
-    'pkg2.f4':'All platforms connected to your website for consistent SEO',
-    'pkg2.f5':'Cohesive branding across web, Facebook, and Google',
-    'pkg2.f6':'Customers can find you, review you, and contact you everywhere',
-    'pkg2.btn':'Get Started — $500 →','pkg2.note':'Best value for most small businesses. Covers everything a new customer needs to find you.',
-    'pkg3.badge':'Full Launch','pkg3.name':'Complete Package','pkg3.tagline':'From zero to running — everything included.',
-    'pkg.period3':'One-time payment · Ads period included',
-    'pkg3.adval':'$250 Ad Spend Included',
-    'pkg3.adlbl':'Real money allocated to your campaigns — baked into the price.',
-    'pkg3.f1':'Everything in Visibility Pack — website + Facebook + Google',
-    'pkg3.f2':'Instagram profile setup — branded and connected',
-    'pkg3.f3':'6 promotional videos / reels produced for your business',
-    'pkg3.f4':'Facebook Ads — built, launched, and managed for you',
-    'pkg3.f5':'Google Ads — built, launched, and managed for you',
-    'pkg3.f6':'$250 of your payment goes directly into ad campaigns',
-    'pkg3.f7':'We test, optimize, and maintain campaigns through the ad period',
-    'pkg3.btn':'Get Started — $1,000 →',
-    'pkg3.note':'The full digital launch. Built for businesses that want to go from nothing to everywhere — fast.',
-    'price.footer':'<strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns for businesses that just need the advertising piece. Quoted separately based on your goals and current setup.',
-    'price.footercta':'Ask About Ads →',
+    'pkg2.name':'Full Presence Pack',
+    'pkg2.tagline':'Everywhere your customers look — you\'re there.',
+    'pkg2.f1':'Everything in Foundation — full custom website',
+    'pkg2.f2':'Facebook Business page — branded setup + first post',
+    'pkg2.f3':'Instagram profile — set up, branded, and ready to grow',
+    'pkg2.f4':'Google Business profile — Maps + Google Search visibility',
+    'pkg2.f5':'Professional business card design — print-ready files',
+    'pkg2.f6':'QR code on your card — one scan shows your whole business',
+    'pkg2.f7':'Linktree setup — we build it and connect your website, socials & contact',
+    'pkg2.f8':'All platforms connected for consistent SEO',
+    'pkg2.f9':'We source all assets — you send us nothing',
+    'pkg2.btn':'Get Started — $500 →',
+    'pkg2.note':'Everything your business needs to be found, followed, and remembered — in one shot.',
+    'price.footer':'<strong>Already have a website or brand?</strong> We also run standalone Facebook Ads and Google Ads campaigns. Just need design work? Graphic design starts at $30 — no package required.',
+    'price.footercta':'Get a Quote →',
     /* CONTACT */
     'contact.tag':'Get In Touch',
     'contact.h2':'What Would It Mean<br>to Have This Done?',
@@ -1898,7 +2104,7 @@ var T = {
     'contact.desc':'Have a vision already mapped out? Walk us through it — we\'ll execute. Not sure where to start? Tell us what your business does and what\'s been frustrating you. Either way, we ask the right questions and get moving fast.',
     'crow1.lbl':'Phone / WhatsApp','crow2.lbl':'Location','crow3.lbl':'Hours',
     'crow3.val':'Mon – Fri, 9 AM – 6 PM Pacific',
-    'crow4.lbl':'We Serve','crow4.val':'US businesses, English-first',
+    'crow4.lbl':'We Serve','crow4.val':'US & Mexico businesses',
     'wa.btn':'Message Us on WhatsApp','fb.btn':'Find Us on Facebook',
     'form.fname':'First Name','form.fname.ph':'John',
     'form.lname':'Last Name','form.lname.ph':'Smith',
@@ -1910,34 +2116,28 @@ var T = {
     'form.submit':'Send Message →',
     'select.placeholder':'Select a service…',
     'select.grp1':'Packages','select.grp2':'Standalone Services',
-    'select.pkg1':'Foundation Package — $250 (Website + Hosting)',
-    'select.pkg2':'Visibility Pack — $500 (Website + Facebook + Google)',
-    'select.pkg3':'Complete Package — $1,000 (Full Launch + Ads + Videos)',
+    'select.pkg1':'Foundation — $250 (Website + Hosting)',
+    'select.pkg2':'Full Presence Pack — $500 (Website + Socials + Card + Linktree)',
+    'select.pkg3':'Graphic Design — From $30',
     'select.s1':'Facebook Ads / Google Ads Management',
     'select.s2':'Logo & Brand Design','select.s3':'Social Media Content',
     'select.s4':'Video Production','select.s5':'Flyers, Business Cards, or Print',
     'select.s6':'Banners & Signage','select.notsure':'Not sure yet — let\'s talk',
     /* FOOTER */
-    'footer.services':'Websites · Brand Design · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
+    'footer.services':'Websites · Brand Design · Video · Graphic Design from $30 · Facebook & Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
   },
 
   es: {
     /* NAV */
-    'nav.services':'Servicios',
-    'nav.work':'Trabajo',
-    'nav.process':'Proceso',
-    'nav.pricing':'Precios',
-    'nav.cta':'Cotiza Gratis →',
+    'nav.services':'Servicios','nav.work':'Trabajo','nav.process':'Proceso',
+    'nav.pricing':'Precios','nav.cta':'Cotiza Gratis →',
     /* HERO */
     'hero.badge':'Agencia Creativa · Ensenada, Baja California',
     'hero.h1':'Si No Te Encuentran,<br><em>No Te Contratan.</em>',
     'hero.sub':'Creamos sitios web, identidades de marca, contenido en video y manejamos anuncios para negocios hartos de ser invisibles. ¿Ya tienes una visión? La hacemos realidad. ¿Empezando desde cero? Nosotros manejamos todo — sin archivos, sin idas y venidas, puro resultado.',
-    'hero.cta1':'Cotiza Gratis →',
-    'hero.cta2':'Ver Nuestro Trabajo',
-    'stat1.lbl':'Sitio web completo',
-    'stat2.lbl':'Archivos que nos envías',
-    'stat3.lbl':'Menos que agencias en EE.UU.',
-    'stat4.lbl':'Estudio para todo',
+    'hero.cta1':'Cotiza Gratis →','hero.cta2':'Ver Nuestro Trabajo',
+    'stat1.lbl':'Sitio web completo','stat2.lbl':'Archivos que nos envías',
+    'stat3.lbl':'Menos que agencias en EE.UU.','stat4.lbl':'Estudio para todo',
     /* TICKER */
     't1':'Diseño Gráfico','t2':'Producción de Video','t3':'Identidad de Marca',
     't4':'Coordinación de Impresión','t5':'Diseño Web','t6':'Facebook Ads',
@@ -1945,19 +2145,25 @@ var T = {
     /* SERVICES */
     'svc.tag':'Lo Que Hacemos',
     'svc.h2':'Un Estudio.<br>Todo Lo Que Tu Negocio Necesita.',
-    'svc.desc':'Sitios web. Diseño de marca. Video. Anuncios. Lo manejamos todo — ya sea que empieces de cero o ya tengas una visión que necesitas hacer realidad.',
-    'svc1.num':'01 · El Más Solicitado',
-    'svc1.h3':'Sitios Web y Presencia Digital',
+    'svc.desc':'Sitios web. Diseño de marca. Video. Anuncios. Diseño desde $30. Lo manejamos todo — ya sea que empieces de cero o ya tengas una visión que necesitas hacer realidad.',
+    'svc1.num':'01 · El Más Solicitado','svc1.h3':'Sitios Web y Presencia Digital',
     'svc1.p':'Cuando un cliente potencial busca tu negocio en Google y no encuentra nada — llama a tu competencia. Pasa decenas de veces al día y nunca te enteras. Un sitio web profesional detiene esa fuga. Lo diseñamos, alojamos, mantenemos y configuramos Google Business y Maps para que aparezcas donde importa.',
-    'svc2.num':'02 · Autoridad de Marca',
-    'svc2.h3':'Diseño de Marca y Gráficos',
+    'svc2.num':'02 · Autoridad de Marca','svc2.h3':'Diseño de Marca y Gráficos',
     'svc2.p':'¿Ya tienes un nombre, un color, un concepto de logo en la cabeza? Nosotros lo hacemos realidad. Si empiezas desde cero, construimos todo el sistema. De cualquier forma, cada elemento visual — logo, publicaciones, volantes, tarjetas — se construye para que coincida y crezca con tu negocio.',
-    'svc3.num':'03 · Contenido y Video',
-    'svc3.h3':'Producción de Video',
-    'svc3.p':'La gente pasa rápido el texto. Se detiene en el video. Un clip de 30 segundos de tu equipo haciendo lo que hace genera más confianza que cualquier argumento de venta. Grabamos, editamos y entregamos contenido que muestra tu trabajo como merece verse — el tipo de contenido que los clientes guardan, comparten y por el que te contactan.',
-    'ads.label':'04 · Publicidad Pagada',
-    'ads.h3':'Manejo de Facebook Ads y Google Ads',
-    'ads.desc':'¿Ya tienes sitio web o marca? Corremos anuncios que la reflejen. Creamos, lanzamos y manejamos campañas en Facebook y Google — desde el creativo hasta el copy y la segmentación — todo con la imagen de lo que ya tienes. Sin anuncios genéricos. Cada campaña se construye alrededor de tu negocio.',
+    'svc3.num':'03 · Contenido y Video','svc3.h3':'Producción de Video',
+    'svc3.p':'La gente pasa rápido el texto. Se detiene en el video. Un clip de 30 segundos de tu equipo haciendo lo que hace genera más confianza que cualquier argumento de venta. Grabamos, editamos y entregamos contenido que muestra tu trabajo como merece verse.',
+    /* GRAPHIC DESIGN CALLOUT */
+    'design.badge':'Solo Diseño · Sin Necesidad de Sitio Web',
+    'design.h3':'Diseño Gráfico desde <em class="price-em">$30</em>',
+    'design.p':'No todos los negocios están listos para un sitio web. Pero todo negocio necesita verse profesional hoy. Un volante o post de $30 bien diseñado es la diferencia entre ser ignorado y ser contratado. Diseñamos logos, volantes, posts, gráficos de bienes raíces, carteles de eventos y banners — pieza por pieza, sin necesidad de paquete.',
+    'design.cta':'Solicita una Cotización →',
+    'design.note':'La mayoría de las piezas individuales empiezan en $30. Cotizaciones personalizadas para proyectos más grandes o trabajo continuo.',
+    'dpill.logo':'Diseño de Logo','dpill.flyers':'Volantes','dpill.social':'Posts para Redes',
+    'dpill.realestate':'Gráficos Inmobiliarios','dpill.events':'Carteles de Eventos',
+    'dpill.biz':'Tarjetas de Presentación','dpill.banners':'Banners y Letreros','dpill.promo':'Material Promo',
+    /* ADS */
+    'ads.label':'04 · Publicidad Pagada','ads.h3':'Manejo de Facebook Ads y Google Ads',
+    'ads.desc':'¿Ya tienes sitio web o marca? Corremos anuncios que la reflejen. Creamos, lanzamos y manejamos campañas en Facebook y Google — desde el creativo hasta el copy y la segmentación — todo con la imagen de lo que ya tienes. Sin anuncios genéricos.',
     'ads.note':'Servicio independiente — cotizado por separado. No requiere paquete.',
     'ads.fb.h5':'Facebook e Instagram Ads',
     'ads.fb.p':'Campañas dirigidas que llegan a tu cliente ideal en las plataformas donde ya navegan. Creamos el anuncio, escribimos el copy y manejamos el presupuesto.',
@@ -1965,12 +2171,20 @@ var T = {
     'ads.goog.p':'Aparece cuando alguien busca exactamente lo que ofreces. Manejamos palabras clave, pujas, alineación de landing page y optimización continua.',
     /* TAGS */
     'tag.webdesign':'Diseño Web','tag.custompages':'Páginas Personalizadas','tag.hosting':'Dominio y Hosting',
-    'tag.googlebiz':'Perfil de Google Business','tag.maintenance':'Mantenimiento Mensual',
+    'tag.googlebiz':'Perfil Google Business','tag.maintenance':'Mantenimiento Mensual',
     'tag.logo':'Diseño de Logo','tag.brand':'Identidad de Marca','tag.social':'Posts para Redes',
     'tag.insta':'Contenido Instagram','tag.flyers':'Volantes','tag.biz':'Tarjetas de Presentación',
     'tag.banners':'Banners y Letreros','tag.print':'Coordinación de Impresión',
     'tag.intros':'Reels de Presentación','tag.events':'Videos de Eventos','tag.promo':'Contenido Promocional',
     'tag.highlights':'Edición Highlight','tag.assetresearch':'Búsqueda de Recursos','tag.website':'Sitio Web',
+    /* COMING SOON */
+    'coming.label':'Lo Que Viene',
+    'coming.badge':'Próximamente',
+    'coming.cta':'Únete a la Lista →',
+    'coming1.h4':'Impresión de Tarjetas de Presentación',
+    'coming1.p':'Ya diseñamos tus tarjetas — pronto también las imprimiremos. Coordinamos con imprentas locales de confianza en Ensenada y te entregamos tarjetas premium directamente. Sin llamadas extra. Sin correr. Una conversación con nosotros. Listo.',
+    'coming2.h4':'Impresión de Ropa con Marca',
+    'coming2.p':'Pon tu marca en tu equipo. Diseñamos las camisetas y coordinamos la producción con proveedores locales en Ensenada — perfecto para crews, eventos y mercancía de marca. Una conversación con nosotros. Todo lo demás, resuelto.',
     /* ADVANTAGE */
     'adv.tag':'Por Qué Master Graphics',
     'adv.h2':'Estás Muy Ocupado<br>Para Ser Tu Propio Diseñador.',
@@ -1984,11 +2198,9 @@ var T = {
     'adv3.h4':'Clientes en EE.UU., Precios de Baja',
     'adv3.p':'Estamos en Ensenada — a dos horas de San Diego, misma zona horaria. Obtienes creatividad de nivel agencia por una fracción de lo que cobra un estudio estadounidense, sin sacrificar calidad ni velocidad.',
     'adv4.h4':'Una Llamada. Un Estudio. Todo Incluido.',
-    'adv4.p':'Sitio web, logo, volante, reel, anuncios, impresión — todo viene de nosotros. No coordinas tres freelancers, una agencia de publicidad y una imprenta. Hablas con una persona y se hace bien.',
+    'adv4.p':'Sitio web, logo, volante, reel, anuncios, impresión — todo viene de nosotros. No coordinas tres freelancers, una agencia y una imprenta. Hablas con una persona y se hace bien.',
     /* WORK */
-    'work.tag':'Nuestro Trabajo',
-    'work.h2':'Dejamos Que El Trabajo<br>Hable Por Nosotros.',
-    'work.cta':'Comienza Tu Proyecto →',
+    'work.tag':'Nuestro Trabajo','work.h2':'Dejamos Que El Trabajo<br>Hable Por Nosotros.','work.cta':'Comienza Tu Proyecto →',
     'case1.badge':'Marca + Sitio Web — Entregado',
     'case1.title':'De Cero Presencia Online a un Negocio Totalmente Marcado.',
     'case1.desc':'Este cliente está en el campo seis días a la semana. Sin tiempo para sentarse con un diseñador, buscar fotos, escribir copy o aprobar rondas de revisiones. Así que no se lo pedimos. Nos dijo lo que necesitaba. Encontramos sus fotos existentes, escribimos el copy, construimos el sitio completo y lo entregamos sin que él nos enviara un solo archivo.',
@@ -1997,15 +2209,13 @@ var T = {
     'case1.link':'Obtén el Mismo Resultado →',
     'badge.done':'Completado','badge.coming':'Próximamente',
     'case2.title':'Él Tenía la Visión. Nosotros la Hicimos Realidad.',
-    'case2.desc':'El cliente llegó sabiendo exactamente lo que quería — el nombre de la empresa, la paleta de colores, el concepto del logo. Nuestro trabajo no era inventar una marca; era tomar su visión y ejecutarla con precisión. Logo, sistema de identidad y despliegue — todo construido alrededor de lo que ya veía en su cabeza.',
+    'case2.desc':'El cliente llegó sabiendo exactamente lo que quería — el nombre de la empresa, la paleta de colores, el concepto del logo. Nuestro trabajo no era inventar una marca; era tomar su visión y ejecutarla con precisión.',
     'case3.title':'Sitio Web, Marca e Impresión Premium',
     'case3.desc':'Un negocio marítimo que necesitaba verse bien tanto en línea como fuera de ella. Sitio web y marca manejados de la misma manera: buscamos los recursos, construimos la identidad y ellos siguieron en el agua. También coordinamos 1,000 tarjetas de presentación premium. Caso de estudio próximamente.',
-    'case4.client':'Agencia Inmobiliaria',
-    'case4.title':'Volantes y Campaña de Impresión',
+    'case4.client':'Agencia Inmobiliaria','case4.title':'Volantes y Campaña de Impresión',
     'case4.desc':'Las propiedades no se venden solas. Diseñamos una campaña de impresión que hizo destacar las propiedades en un mercado saturado — material pulido que se guardó y compartió. Caso de estudio próximamente.',
     /* PROCESS */
-    'proc.tag':'Cómo Funciona',
-    'proc.h2':'Cuatro Pasos.<br>Tú Solo Participas en Uno.',
+    'proc.tag':'Cómo Funciona','proc.h2':'Cuatro Pasos.<br>Tú Solo Participas en Uno.',
     'proc.desc':'La mayoría de los procesos de diseño agotan al cliente — briefs, rondas de revisión, solicitudes de archivos, seguimientos constantes. El nuestro no. Tú haces un movimiento. Todo lo que sigue es nuestro.',
     'ps1.h4':'Tú Nos Dices Lo Que Necesitas',
     'ps1.p':'Una conversación — llamada, mensaje o WhatsApp. Dinos qué hace tu negocio y qué problema intentas resolver. ¿Ya tienes una visión? Cuéntanos. ¿Empezando desde cero? Tenemos preguntas que avanzan rápido.',
@@ -2017,8 +2227,19 @@ var T = {
     'ps4.p':'Entrega rápida. Sin sorpresas en la factura. Vuelves a tu campo, tu equipo, tus clientes — y tu negocio ahora se ve como merece.',
     /* PRICING */
     'price.tag':'Precios',
-    'price.h2':'Sabe Lo Que Pagas<br>Antes de Empezar.',
-    'price.desc':'Tres paquetes claros. Cada uno incluye más que el anterior. Sin facturas sorpresa, sin cargos ocultos — solo un precio real por un entregable real.',
+    'price.h2':'Desde $30 Hasta Presencia Total.<br>Sin Sorpresas.',
+    'price.desc':'Ya sea que necesites una sola pieza de diseño hoy o un lanzamiento digital completo — todo tiene precio claro, entrega completa y está construido alrededor de tu negocio. Sin cargos ocultos. Sin idas y venidas.',
+    'pkg0.starting':'Solo Diseño','pkg0.name':'Diseño Gráfico',
+    'pkg0.tagline':'¿No listo para un sitio web? Empieza aquí.',
+    'pkg0.period':'Por pieza · Sin paquete necesario · Cotizaciones personalizadas',
+    'pkg0.f1':'Diseño de logo',
+    'pkg0.f2':'Volantes inmobiliarios y de propiedades',
+    'pkg0.f3':'Gráficos y posts para redes sociales',
+    'pkg0.f4':'Carteles de eventos y materiales promocionales',
+    'pkg0.f5':'Diseño de tarjetas de presentación — archivos listos para imprimir',
+    'pkg0.f6':'Banners, letreros y cualquier pieza impresa',
+    'pkg0.btn':'Solicita una Cotización →',
+    'pkg0.note':'La mayoría de las piezas individuales empiezan en $30. Trabajo continuo y por volumen se cotiza por separado.',
     'pkg1.name':'La Base','pkg1.tagline':'Tu negocio en línea — listo y bien hecho.',
     'pkg.period1':'Pago único · Sin mensualidades · Sin contratos',
     'pkg1.f1':'Sitio web multipágina personalizado — diseñado alrededor de tu negocio',
@@ -2027,31 +2248,24 @@ var T = {
     'pkg1.f4':'Buscamos todas tus fotos y recursos — tú no envías nada',
     'pkg1.f5':'Mantenimiento mensual para que el sitio siga funcionando',
     'pkg1.f6':'Actualizaciones menores de copy cuando tu información cambie',
-    'pkg1.btn':'Comenzar — $250 →','pkg1.note':'Páginas adicionales y rediseños mayores se cotizan por separado.',
+    'pkg1.btn':'Comenzar — $250 →',
+    'pkg1.note':'Páginas adicionales y rediseños mayores se cotizan por separado.',
     'pkg.popular':'El Más Popular',
-    'pkg2.name':'Paquete Visibilidad','pkg2.tagline':'Encontrado en cada plataforma que importa.',
-    'pkg2.f1':'Todo en La Base — sitio web completo incluido',
-    'pkg2.f2':'Configuración de página de Facebook Business — foto de perfil, portada, primera publicación de marca',
-    'pkg2.f3':'Perfil de Google Business — aparece en Maps y búsqueda de Google',
-    'pkg2.f4':'Todas las plataformas conectadas a tu sitio para SEO consistente',
-    'pkg2.f5':'Marca cohesiva en web, Facebook y Google',
-    'pkg2.f6':'Los clientes te encuentran, te reseñan y te contactan en todos lados',
-    'pkg2.btn':'Comenzar — $500 →','pkg2.note':'Mejor valor para la mayoría de los negocios pequeños. Cubre todo lo que un nuevo cliente necesita para encontrarte.',
-    'pkg3.badge':'Lanzamiento Total','pkg3.name':'Paquete Completo','pkg3.tagline':'De cero a funcionando — todo incluido.',
-    'pkg.period3':'Pago único · Período de anuncios incluido',
-    'pkg3.adval':'$250 de Gasto en Anuncios Incluido',
-    'pkg3.adlbl':'Dinero real asignado a tus campañas — integrado en el precio.',
-    'pkg3.f1':'Todo en Paquete Visibilidad — sitio + Facebook + Google',
-    'pkg3.f2':'Configuración de perfil Instagram — con marca y conectado',
-    'pkg3.f3':'6 videos promocionales / reels producidos para tu negocio',
-    'pkg3.f4':'Facebook Ads — creados, lanzados y manejados por nosotros',
-    'pkg3.f5':'Google Ads — creados, lanzados y manejados por nosotros',
-    'pkg3.f6':'$250 de tu pago va directamente a las campañas',
-    'pkg3.f7':'Probamos, optimizamos y mantenemos las campañas durante el período de anuncios',
-    'pkg3.btn':'Comenzar — $1,000 →',
-    'pkg3.note':'El lanzamiento digital completo. Para negocios que quieren pasar de la nada a estar en todos lados — rápido.',
-    'price.footer':'<strong>¿Ya tienes sitio web o marca?</strong> También manejamos campañas independientes de Facebook Ads y Google Ads para negocios que solo necesitan la parte publicitaria. Se cotiza por separado según tus objetivos y configuración actual.',
-    'price.footercta':'Pregunta Sobre Anuncios →',
+    'pkg2.name':'Paquete Presencia Total',
+    'pkg2.tagline':'Donde quiera que te busquen — estás ahí.',
+    'pkg2.f1':'Todo en La Base — sitio web personalizado completo',
+    'pkg2.f2':'Página de Facebook Business — configuración con marca + primer post',
+    'pkg2.f3':'Perfil de Instagram — configurado, con marca y listo para crecer',
+    'pkg2.f4':'Perfil de Google Business — visibilidad en Maps y búsqueda de Google',
+    'pkg2.f5':'Diseño profesional de tarjeta de presentación — archivos listos para imprimir',
+    'pkg2.f6':'Código QR en tu tarjeta — un escaneo muestra todo tu negocio',
+    'pkg2.f7':'Linktree configurado — lo creamos y conectamos tu sitio, redes y contacto',
+    'pkg2.f8':'Todas las plataformas conectadas para SEO consistente',
+    'pkg2.f9':'Buscamos todos tus recursos — tú no envías nada',
+    'pkg2.btn':'Comenzar — $500 →',
+    'pkg2.note':'Todo lo que tu negocio necesita para ser encontrado, seguido y recordado — en un solo paso.',
+    'price.footer':'<strong>¿Ya tienes sitio web o marca?</strong> También manejamos campañas independientes de Facebook Ads y Google Ads. ¿Solo necesitas diseño? El diseño gráfico empieza en $30 — sin paquete necesario.',
+    'price.footercta':'Solicita una Cotización →',
     /* CONTACT */
     'contact.tag':'Contáctanos',
     'contact.h2':'¿Qué Significaría<br>Tenerlo Listo?',
@@ -2072,15 +2286,15 @@ var T = {
     'form.submit':'Enviar Mensaje →',
     'select.placeholder':'Selecciona un servicio…',
     'select.grp1':'Paquetes','select.grp2':'Servicios Independientes',
-    'select.pkg1':'Paquete La Base — $250 (Sitio + Hosting)',
-    'select.pkg2':'Paquete Visibilidad — $500 (Sitio + Facebook + Google)',
-    'select.pkg3':'Paquete Completo — $1,000 (Lanzamiento + Anuncios + Videos)',
+    'select.pkg1':'La Base — $250 (Sitio + Hosting)',
+    'select.pkg2':'Paquete Presencia Total — $500 (Sitio + Redes + Tarjeta + Linktree)',
+    'select.pkg3':'Diseño Gráfico — Desde $30',
     'select.s1':'Manejo de Facebook Ads / Google Ads',
     'select.s2':'Logo y Diseño de Marca','select.s3':'Contenido para Redes Sociales',
     'select.s4':'Producción de Video','select.s5':'Volantes, Tarjetas o Impresión',
     'select.s6':'Banners y Letreros','select.notsure':'No estoy seguro aún — hablemos',
     /* FOOTER */
-    'footer.services':'Sitios Web · Diseño de Marca · Video · Facebook Ads · Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
+    'footer.services':'Sitios Web · Diseño de Marca · Video · Diseño Gráfico desde $30 · Facebook &amp; Google Ads · <a href="tel:+526463443435">(646) 344-3435</a>'
   }
 };
 
